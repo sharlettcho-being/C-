@@ -6,26 +6,40 @@ using System.Threading.Tasks;
 
 namespace Practice1_1_3
 {
-    internal class Student: Person
+    internal class Student : Person
     {
-        public int Grade { get; set; }
-        public int ClassNumber { get; set; }
+        /// <summary>
+        /// 学年
+        /// </summary>
+        public int FGrade { get; set; }
 
-        //引数なしのコンストラクタ
+        /// <summary>
+        /// クラス番号（組）
+        /// </summary>
+        public int FClassNumber { get; set; }
+
+        /// <summary>
+        /// 引数なしょコンストラクタ
+        /// </summary>
         public Student()
         {
-            this.Grade = 0;
-            this.ClassNumber = 0;
+            this.FGrade = 0;
+            this.FClassNumber = 0;
         }
 
-        //引数ありのコンストラクタ
-        //基本クラスの変数も呼び出すできる
-        public Student(int grade, int className, string name, DateTime birthday): base (name, birthday)
+        /// <summary>
+        /// 引数ありのコンストラクタ
+        /// </summary>
+        /// <param name="grade"></param>
+        /// <param name="className"></param>
+        /// <param name="name"></param>
+        /// <param name="birthday"></param>
+        public Student(int vGrade, int vClassName, string vName, DateTime vBirthday) : base(vName, vBirthday)
         {
-            this.Grade = grade;
-            this.ClassNumber = className;
-            this.Name = name;
-            this.Birthday = birthday;
+            this.FGrade = vGrade;
+            this.FClassNumber = vClassName;
+            this.FName = vName;
+            this.FBirthday = vBirthday;
 
         }
     }

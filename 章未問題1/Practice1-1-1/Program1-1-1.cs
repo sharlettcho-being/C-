@@ -8,14 +8,17 @@ namespace Practice1_1_1
 {
     internal class Program
     {
+        /// <summary>
+        /// どら焼きの消費税額を求める
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-            OtherName.Product product = new OtherName.Product();
-            product.Name = "どら焼き";
-            product.Code = 98;
-            product.Price = 210;
+            Product Fproduct = new Product();
+            Fproduct.FCode = 98;
+            Fproduct.FPrice = 210;
 
-            Console.WriteLine(product.GetTax());
+            Console.WriteLine(Fproduct.GetTax());
 
         }
     }

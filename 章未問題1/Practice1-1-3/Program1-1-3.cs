@@ -8,22 +8,26 @@ namespace Practice1_1_3
 {
     internal class Program
     {
+        /// <summary>
+        /// 学生の名前、年齢、学年、クラス番号の表示
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Student student = new Student();
-            student.Name = "ス";
-            student.Birthday = DateTime.Parse("2018-4-10");
-            student.Grade = 1;
-            student.ClassNumber = 1;
+            Student FStudent = new Student();
+            FStudent.FName = "ス";
+            FStudent.FBirthday = DateTime.Parse("2018-4-10");
+            FStudent.FGrade = 1;
+            FStudent.FClassNumber = 1;
 
-            Console.WriteLine("名前: {0} \n年齢: {1} \n学年: {2} \nクラス番号: {3}", student.Name, student.GetAge(), student.Grade, student.ClassNumber);
+            Console.WriteLine($"名前:{FStudent.FName}\n年齢:{FStudent.GetAge()}\n学年: {FStudent.FGrade} \nクラス番号:{FStudent.FClassNumber}");
 
-            Person person = new Student(1, 2, "チョ", DateTime.Parse("2018-4-10"));
-            person.Name = "チョ";
-            person.Birthday = DateTime.Parse("2012 / 4 / 6");
-            ((Student)person).Grade = 2;
-            ((Student)person).ClassNumber = 2;
-            Console.WriteLine("名前: {0} \n年齢: {1} \n学年: {2} \nクラス番号: {3}", person.Name, person.GetAge(), ((Student)person).Grade, ((Student)person).ClassNumber);
+            Person FPerson = new Student(1, 2, "チョ", DateTime.Parse("2018-4-10"));
+            FPerson.FName = "チョ";
+            FPerson.FBirthday = DateTime.Parse("2012 / 4 / 6");
+            ((Student)FPerson).FGrade = 2;
+            ((Student)FPerson).FClassNumber = 2;
+            Console.WriteLine($"名前:{FPerson.FName}\n年齢:{FPerson.GetAge()}\n学年: {((Student)FPerson).FGrade} \nクラス番号:{((Student)FPerson).FClassNumber}");
 
         }
     }

@@ -4,29 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OtherName
+namespace Practice1_1_1
 {
     internal class Product
     {
-        //商品コード
-        public int Code { get; set; }
+        /// <summary>
+        /// 商品コード
+        /// </summary>
+        public int FCode { get; set; }
 
-        //商品名
-        public string Name { get; set; }
+        /// <summary>
+        /// 商品名
+        /// </summary>
+        public string FName { get; set; }
 
-        //商品価格（税抜き）
-        public int Price { get; set; }
+        /// <summary>
+        ///商品価格（税抜き） 
+        /// </summary>
+        public int FPrice { get; set; }
 
-        //消費税額を求める（消費税率は8%）
+        ///<summary>
+        /// 消費税額を求める（消費税率は8%）
+        /// </summary>
+        /// <returns></returns>
         public int GetTax()
         {
-            return (int)(Price * 0.08);
+            return (int)(this.FPrice * 0.08);
         }
 
-        //税込価格を求める
+        /// <summary>
+        /// 税込価格を求める
+        /// </summary>
+        /// <returns></returns>
         public int GetPriceIncludingTax()
         {
-            return Price + GetTax();
+            return this.FPrice + GetTax();
         }
     }
 }

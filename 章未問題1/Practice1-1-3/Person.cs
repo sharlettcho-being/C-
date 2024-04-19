@@ -8,29 +8,46 @@ namespace Practice1_1_3
 {
     internal class Person
     {
-        public string Name { get; set; }
-        public DateTime Birthday { get; set;}
+        /// <summary>
+        /// 名前
+        /// </summary>
+        public string FName { get; set; }
+        /// <summary>
+        /// 誕生日
+        /// </summary>
+        public DateTime FBirthday { get; set; }
+
+        /// <summary>
+        /// 年齢の計算
+        /// </summary>
+        /// <returns></returns>
         public int GetAge()
         {
             DateTime today = DateTime.Today;
-            int age = today.Year - Birthday.Year;
-            if (today < Birthday.AddYears(age))
-                age--;
-            return age;
+            int wAge = today.Year - FBirthday.Year;
+            if (today < FBirthday.AddYears(wAge))
+                wAge--;
+            return wAge;
         }
 
-        //引数なしのコンストラクタ
+        /// <summary>
+        /// 引数なしのコンストラクタ
+        /// </summary>
         public Person()
         {
-            this.Name = null;
-            this.Birthday = DateTime.Now;
+            this.FName = null;
+            this.FBirthday = DateTime.Now;
         }
 
-        //引数ありのコンストラクタ
-        public Person(string name, DateTime birthday)
+        /// <summary>
+        /// 引数ありのコンストラクタ
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="birthday"></param>
+        public Person(string vName, DateTime vBirthday)
         {
-            this.Name = name;
-            this.Birthday = birthday;
+            this.FName = vName;
+            this.FBirthday = vBirthday;
         }
     }
 }

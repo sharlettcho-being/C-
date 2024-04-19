@@ -5,66 +5,78 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Practice1_1_2
 {
     internal class Program
     {
+        /// <summary>
+        /// X、Yプロパティを持っているクラス
+        /// </summary>
         class MyClass
         {
-            public int X { get; set; }
-            public int Y { get; set; }
+            public int FX { get; set; }
+            public int FY { get; set; }
 
             //コンストラクタ
             public MyClass(int x, int y)
             {
-                this.X = x;
-                this.Y = y;
+                this.FX = x;
+                this.FY = y;
             }
         }
+        /// <summary>
+        /// X、Yプロパティを持っている構造体
+        /// </summary>
 
         struct MyStruct
         {
-            public int X { get; set; }
-            public int Y { get; set; }
+            public int FX { get; set; }
+            public int FY { get; set; }
 
             //コンストラクタ
             public MyStruct(int x, int y)
             {
-                this.X = x;
-                this.Y = y;
+                this.FX = x;
+                this.FY = y;
             }
         }
-
-        static void PrintObjects(MyClass myClass, MyStruct myStruct)
+        /// <summary>
+        /// MyClassとMyStructが持っているプロジェクトを表示する。
+        /// MyClassとMyStructが持っているプロジェクトを2倍にしてを表示する。
+        /// </summary>
+        /// <param name="myClass"></param>
+        /// <param name="myStruct"></param>
+        static void PrintObjects(MyClass vMyClass, MyStruct vMyStruct)
         {
-            Console.WriteLine("クラスの値　({0}, {1})", myClass.X, myClass.Y);
-            Console.WriteLine("構造体の値　({0}, {1})", myStruct.X, myStruct.Y);
+            Console.WriteLine($"クラスの値( {vMyClass.FX}, {vMyClass.FY}) ");
+            Console.WriteLine($"構造体の値( {vMyStruct.FX}, {vMyStruct.FY}) ");
 
 
             //値を２倍にする
-            myClass.X = myClass.X * 2;
-            myClass.Y = myClass.Y * 2;
-            myStruct.X *= 2;
-            myStruct.Y *= 2;
-           
-            Console.WriteLine("クラスの2倍の値　({0}, {1})", myClass.X, myClass.Y);
-            Console.WriteLine("構造体の2倍の値　({0}, {1})", myStruct.X, myStruct.Y);            
+            vMyClass.FX = vMyClass.FX * 2;
+            vMyClass.FY = vMyClass.FY * 2;
+            vMyStruct.FX *= 2;
+            vMyStruct.FY *= 2;
 
-        } 
-         static void Main(string[] args)
+            Console.WriteLine($"クラスの2倍の値( {vMyClass.FX}, {vMyClass.FY}) ");
+            Console.WriteLine($"構造体の2倍の値( {vMyStruct.FX}, {vMyStruct.FY}) ");
+
+        }
+        static void Main(string[] args)
         {
             // MyClassのインスタンスを作成
-            MyClass myClass = new MyClass(1, 2);
+            var FmyClass = new MyClass(1, 2);
 
             // MyStructのインスタンスを作成
-            MyStruct myStruct = new MyStruct(3, 4);
+            var FmyStruct = new MyStruct(3, 4);
 
             // PrintObjectsメソッドを呼び出す
-            PrintObjects(myClass, myStruct);
+            PrintObjects(FmyClass, FmyStruct);
 
-            Console.WriteLine("Mainメソッドでのクラスの値　({0}, {1})", myClass.X, myClass.Y);
-            Console.WriteLine("Mainメソッドでの構造体の値　({0}, {1})", myStruct.X, myStruct.Y);
+            Console.WriteLine($"Mainメソッドでのクラスの値( {FmyClass.FX}, {FmyClass.FY}) ");
+            Console.WriteLine($"Mainメソッドでの構造体の値( {FmyStruct.FX}, {FmyStruct.FY}) ");
 
         }
     }
