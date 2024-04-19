@@ -1,22 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+namespace Practice2_1_1{
+    internal class Song{
+        /// <summary>
+        /// 歌のタイトル
+        /// </summary>
+        public string Title { get; set; }
+        /// <summary>
+        /// アーテイスト名
+        /// </summary>
+        public string ArtistName { get; set; }
+        /// <summary>
+        /// 演奏時間
+        /// </summary>
+        public int Length { get; set; }
 
-namespace Practice2_1_1
-{
-    internal class Song
-    {
-        public string wTitle { get; set; }
-        public string wArtistName { get; set; }
-        public int wLength { get; set; }
-
-        public Song(string vTitle, string vArtistName, int vLength)
-        {
-            this.wTitle = vTitle;
-            this.wArtistName = vArtistName;
-            this.wLength = vLength;
+        /// <summary>
+        /// 引数ありのコンストラクタ
+        /// </summary>
+        /// <param name="vTitle"></param>
+        /// <param name="vArtistName"></param>
+        /// <param name="vLength"></param>
+        public Song(string vTitle, string vArtistName, int vLength){
+            this.Title = vTitle;
+            this.ArtistName = vArtistName;
+            this.Length = vLength;
         }
 
     }
