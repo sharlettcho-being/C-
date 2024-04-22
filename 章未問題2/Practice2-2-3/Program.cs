@@ -9,8 +9,8 @@ namespace Practice2_2_3{
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args){
-            SalesCounter FSales = new SalesCounter(ReadSales("sale.csv"));
-            Dictionary<string, int> wAmountPerStore = FSales.GetPerStoreSales();
+            SalesCounter wSales = new SalesCounter(ReadSales("sale.csv"));
+            Dictionary<string, int> wAmountPerStore = wSales.GetPerStoreSales();
             foreach(KeyValuePair<string, int> obj in wAmountPerStore) {
                 Console.WriteLine("{0}  {1}", obj.Key, obj.Value);
             }
