@@ -5,7 +5,7 @@ namespace Practice2_2_2{
         /// <summary>
         /// インチからメートル、メートルからインチへの変換表を出力
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">ユーザーから"itom"か”mtoi”か記入してもらう</param>
         static void Main(string[] args){
             // ユーザーからの入力を受け取る
             Console.WriteLine("インチからメートルへ変換したい場合「itom」、メートルからインチに変換したい場合「mtoi」と記入してください。");
@@ -27,8 +27,8 @@ namespace Practice2_2_2{
         /// <summary>
         /// インチからメートルへの対応表を出力
         /// </summary>
-        /// <param name="vStart"></param>
-        /// <param name="vEnd"></param>
+        /// <param name="vStart">開始値</param>
+        /// <param name="vEnd">終了値</param>
         static void PrintInchToMeterList(int vStart, int vEnd){
             Console.WriteLine("インチからメートルへ変換");
             for (int i = vStart; i <= vEnd; i++){
@@ -40,8 +40,8 @@ namespace Practice2_2_2{
         /// <summary>
         /// メートルからインチへの対応表を出力
         /// </summary>
-        /// <param name="vStart"></param>
-        /// <param name="vEnd"></param>
+        /// <param name="vStart">開始値</param>
+        /// <param name="vEnd">終了値</param>
         static void PrintMeterToInch(int vStart, int vEnd){
             Console.WriteLine("メートルからインチへ変換");
             for (int i = vStart; i <= vEnd; i++){

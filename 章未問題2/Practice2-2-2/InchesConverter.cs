@@ -9,7 +9,7 @@ namespace Practice2_2_2{
         /// <summary>
         /// インチからメートルを求める
         /// </summary>
-        /// <param name="vMeter"></param>
+        /// <param name="vMeter">メートル</param>
         /// <returns></returns>
         public static  double FromMeter(double vMeter){
             return vMeter / C_Ratio;
@@ -18,7 +18,7 @@ namespace Practice2_2_2{
         /// <summary>
         /// メートルからインチを求める
         /// </summary>
-        /// <param name="vInch"></param>
+        /// <param name="vInch">インチ</param>
         /// <returns></returns>
         public static double ToMeter(double vInch){
             return vInch * C_Ratio;

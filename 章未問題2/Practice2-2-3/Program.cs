@@ -9,9 +9,9 @@ namespace Practice2_2_3{
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args){
-            SalesCounter wSales = new SalesCounter(ReadSales("sale.csv"));
-            Dictionary<string, int> amountPerStore = wSales.GetPerStoreSales();
-            foreach(KeyValuePair<string, int> obj in amountPerStore){
+            SalesCounter FSales = new SalesCounter(ReadSales("sale.csv"));
+            Dictionary<string, int> wAmountPerStore = FSales.GetPerStoreSales();
+            foreach(KeyValuePair<string, int> obj in wAmountPerStore) {
                 Console.WriteLine("{0}  {1}", obj.Key, obj.Value);
             }
                 
@@ -19,22 +19,22 @@ namespace Practice2_2_3{
         /// <summary>
         /// 売り上げデータを読み込み、Saleオブジェクトのリストを返す
         /// </summary>
-        /// <param name="filePath"></param>
+        /// <param name="filePath">CSVファイルのパス</param>
         /// <returns></returns>
-        static List<Sale> ReadSales(string filePath){
-            List<Sale> wSales = new List<Sale>();
-            string[] lines = File.ReadAllLines(filePath);
-            foreach(string line in lines){
+        static List<Sale> ReadSales(string vfilePath){
+            List<Sale> FSales = new List<Sale>();
+            string[] wLines = File.ReadAllLines(vfilePath);
+            foreach(string line in wLines) {
                 if (line == "") break;
                 string[] item = line.Split(',');
-                Sale sale = new Sale(){
+                Sale Fsale = new Sale(){
                     ShopName = item[0],
                     ProductCategory = item[1],
                     Amount = int.Parse(item[2])
                 };
-                wSales.Add(sale);
+                FSales.Add(Fsale);
             }
-            return wSales;
+            return FSales;
         }
     }
 }
