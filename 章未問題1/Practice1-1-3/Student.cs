@@ -1,45 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Practice1_1_3
-{
+namespace Practice1_1_3 {
     internal class Student : Person
     {
         /// <summary>
         /// 学年
         /// </summary>
-        public int FGrade { get; set; }
+        public int Grade { get; set; }
 
         /// <summary>
         /// クラス番号（組）
         /// </summary>
-        public int FClassNumber { get; set; }
+        public int ClassNumber { get; set; }
 
         /// <summary>
         /// 引数なしょコンストラクタ
         /// </summary>
         public Student()
         {
-            this.FGrade = 0;
-            this.FClassNumber = 0;
+            this.Grade = 0;
+            this.ClassNumber = 0;
         }
 
         /// <summary>
         /// 引数ありのコンストラクタ
         /// </summary>
-        /// <param name="grade"></param>
-        /// <param name="className"></param>
-        /// <param name="name"></param>
-        /// <param name="birthday"></param>
+        /// <param name="grade">グレード</param>
+        /// <param name="className">クラス名</param>
+        /// <param name="name">名前</param>
+        /// <param name="birthday">誕生日</param>
         public Student(int vGrade, int vClassName, string vName, DateTime vBirthday) : base(vName, vBirthday)
         {
-            this.FGrade = vGrade;
-            this.FClassNumber = vClassName;
-            this.FName = vName;
-            this.FBirthday = vBirthday;
+            this.Grade = vGrade;
+            this.ClassNumber = vClassName;
+            this.Name = vName;
+            this.Birthday = vBirthday;
 
         }
     }

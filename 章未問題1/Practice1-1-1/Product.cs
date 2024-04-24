@@ -1,44 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Practice1_1_1
-{
+﻿namespace Practice1_1_1 {
     internal class Product
     {
         /// <summary>
         /// 商品コード
         /// </summary>
-        public int FCode { get; set; }
+        public int Code { get; set; }
 
         /// <summary>
         /// 商品名
         /// </summary>
-        public string FName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         ///商品価格（税抜き） 
         /// </summary>
-        public int FPrice { get; set; }
+        public int Price { get; set; }
 
         ///<summary>
         /// 消費税額を求める（消費税率は8%）
         /// </summary>
-        /// <returns></returns>
+        /// <returns>税金8％が含んでる消費</returns>
         public int GetTax()
         {
-            return (int)(this.FPrice * 0.08);
+            return (int)(this.Price * 0.08);
         }
 
         /// <summary>
         /// 税込価格を求める
         /// </summary>
-        /// <returns></returns>
+        /// <returns>税込価格</returns>
         public int GetPriceIncludingTax()
         {
-            return this.FPrice + GetTax();
+            return this.Price + GetTax();
         }
     }
 }

@@ -1,31 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Practice1_1_3
-{
+namespace Practice1_1_3 {
     internal class Person
     {
         /// <summary>
         /// 名前
         /// </summary>
-        public string FName { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// 誕生日
         /// </summary>
-        public DateTime FBirthday { get; set; }
+        public DateTime Birthday { get; set; }
 
         /// <summary>
         /// 年齢の計算
         /// </summary>
-        /// <returns></returns>
+        /// <returns>年齢</returns>
         public int GetAge()
         {
-            DateTime today = DateTime.Today;
-            int wAge = today.Year - FBirthday.Year;
-            if (today < FBirthday.AddYears(wAge))
+            DateTime wToday = DateTime.Today;
+            var wAge = wToday.Year - Birthday.Year;
+            if (wToday < Birthday.AddYears(wAge))
                 wAge--;
             return wAge;
         }
@@ -35,19 +30,19 @@ namespace Practice1_1_3
         /// </summary>
         public Person()
         {
-            this.FName = null;
-            this.FBirthday = DateTime.Now;
+            this.Name = null;
+            this.Birthday = DateTime.Now;
         }
 
         /// <summary>
         /// 引数ありのコンストラクタ
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="birthday"></param>
+        /// <param name="name">名前</param>
+        /// <param name="birthday">誕生日</param>
         public Person(string vName, DateTime vBirthday)
         {
-            this.FName = vName;
-            this.FBirthday = vBirthday;
+            this.Name = vName;
+            this.Birthday = vBirthday;
         }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Practice1_1_3
-{
+namespace Practice1_1_3 {
     internal class Program
     {
         /// <summary>
@@ -15,19 +10,19 @@ namespace Practice1_1_3
         static void Main(string[] args)
         {
             Student FStudent = new Student();
-            FStudent.FName = "ス";
-            FStudent.FBirthday = DateTime.Parse("2018-4-10");
-            FStudent.FGrade = 1;
-            FStudent.FClassNumber = 1;
+            FStudent.Name = "ス";
+            FStudent.Birthday = DateTime.Parse("2018-4-10");
+            FStudent.Grade = 1;
+            FStudent.ClassNumber = 1;
 
-            Console.WriteLine($"名前:{FStudent.FName}\n年齢:{FStudent.GetAge()}\n学年: {FStudent.FGrade} \nクラス番号:{FStudent.FClassNumber}");
+            Console.WriteLine($"名前:{FStudent.Name}\n年齢:{FStudent.GetAge()}\n学年: {FStudent.Grade} \nクラス番号:{FStudent.ClassNumber}");
 
-            Person FPerson = new Student(1, 2, "チョ", DateTime.Parse("2018-4-10"));
-            FPerson.FName = "チョ";
-            FPerson.FBirthday = DateTime.Parse("2012 / 4 / 6");
-            ((Student)FPerson).FGrade = 2;
-            ((Student)FPerson).FClassNumber = 2;
-            Console.WriteLine($"名前:{FPerson.FName}\n年齢:{FPerson.GetAge()}\n学年: {((Student)FPerson).FGrade} \nクラス番号:{((Student)FPerson).FClassNumber}");
+            Person wPerson = new Student(1, 2, "チョ", DateTime.Parse("2018-4-10"));
+            wPerson.Name = "チョ";
+            wPerson.Birthday = DateTime.Parse("2012 / 4 / 6");
+            ((Student)wPerson).Grade = 2;
+            ((Student)wPerson).ClassNumber = 2;
+            Console.WriteLine($"名前:{wPerson.Name}\n年齢:{wPerson.GetAge()}\n学年: {((Student)wPerson).Grade} \nクラス番号:{((Student)wPerson).ClassNumber}");
 
         }
     }
