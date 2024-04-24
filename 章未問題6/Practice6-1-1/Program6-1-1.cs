@@ -9,18 +9,18 @@ namespace Practice6_1_1 {
         /// <param name="args"></param>
         static void Main(string[] args) {
             //初期化
-            var wNumbers = new int[] { 5, 10, 17, 9, 3, 21, 10, 40, 21, 3, 35 };
+            var wNumbersArry = new int[] { 5, 10, 17, 9, 3, 21, 10, 40, 21, 3, 35 };
 
             //最大値の表示
-            FindMaxValue(wNumbers);
+            FindMaxValue(wNumbersArry);
             //最後から２つの要素を表示する
-            DisplayLastTwoElements(wNumbers);
+            DisplayLastTwoElements(wNumbersArry);
             // それぞれの数値を文字列に変換する
-            ConvertNumbersToStrings(wNumbers);
+            ConvertNumbersToStrings(wNumbersArry);
             // 数の小さい順に並べ、先頭から3つを表示する。
-            DisplayFirstThreeNumbersInAscendingOrder(wNumbers);
+            DisplayFirstThreeNumbersInAscendingOrder(wNumbersArry);
             //重複を排除し、10より大きい値のカウントを表示する
-            CountDistinctValuesGreaterThanTen(wNumbers);
+            CountDistinctValuesGreaterThanTen(wNumbersArry);
 
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Practice6_1_1 {
         /// </summary>
         /// <param name="vNumbers">数値が格納された配列</param>
         public static void ConvertNumbersToStrings(int[] vNumbers) {
-            var wTexts = vNumbers.Select(n => n.ToString()).ToArray();
+            var wTexts = vNumbers.Select(x => x.ToString()).ToArray();
             Console.WriteLine("------ 数値を文字列に変換した結果 ------");
             foreach (var text in wTexts) {
                 Console.WriteLine(text);
