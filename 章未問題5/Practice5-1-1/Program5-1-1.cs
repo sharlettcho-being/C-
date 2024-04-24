@@ -17,9 +17,12 @@ namespace Practice5_1_1 {
             var wCultureInfo = new CultureInfo("ja-JP");
 
             //入力された文字列２つを比較する
-            if (String.Compare(wText, wText2, wCultureInfo, CompareOptions.IgnoreCase) == 0)
+            if (String.Compare(wText, wText2, wCultureInfo, CompareOptions.IgnoreCase) == 0){
                 Console.WriteLine("等しい！");
-            else Console.WriteLine("等しくない！");
+            } 
+            else{
+                Console.WriteLine("等しくない！");
+            }
         }
     }
 }
