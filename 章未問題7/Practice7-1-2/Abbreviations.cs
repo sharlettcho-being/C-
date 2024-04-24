@@ -56,8 +56,9 @@ namespace Practice7_1_2 {
         /// <returns>ディクショナリ</returns>
         public IEnumerable<KeyValuePair<string, string>> FindAll(string substring) {
             foreach (var item in FDict) {
-                if (item.Value.Contains(substring))
+                if (item.Value.Contains(substring)) {
                     yield return item;
+                }
             }
         }
 
@@ -80,7 +81,6 @@ namespace Practice7_1_2 {
                 wResult = true;
             }
             return wResult;
-
         }
 
         /// <summary>

@@ -34,7 +34,8 @@ namespace Practice7_1_1 {
                 if (ch >= 'A' && ch <= 'Z') {
                     if (wDict.ContainsKey(ch)) {
                         wDict[ch]++;
-                    } else {
+                    } 
+                    else {
                         wDict.Add(ch, 1);
                     }
                 }
@@ -61,7 +62,8 @@ namespace Practice7_1_1 {
                 if (ch >= 'A' && ch <= 'Z') {
                     if (wSortedDict.ContainsKey(ch)) {
                         wSortedDict[ch]++;
-                    } else {
+                    } 
+                    else {
                         wSortedDict.Add(ch, 1);
                     }
                 }

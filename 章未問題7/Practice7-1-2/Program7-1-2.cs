@@ -11,8 +11,9 @@ namespace Practice7_1_2 {
             var wNames = new[] { "WHO", "FIFA", "NPT", };
             foreach (var name in wNames) {
                 var wfullname = wAbbrs[name];
-                if (wfullname == null)
+                if (wfullname == null) {
                     Console.WriteLine("{0}は見つかりません。", name);
+                }                    
                 else {
                     Console.WriteLine("{0}={1}", name, wfullname);
                 }
@@ -21,10 +22,13 @@ namespace Practice7_1_2 {
 
             var wJapanese = "東南アジア諸国連合";
             var wAbbreviation = wAbbrs.ToAbbreviation(wJapanese);
-            if (wAbbreviation == null)
+            if (wAbbreviation == null) {
                 Console.WriteLine("{0}は見つかりません", wJapanese);
-            else
+            } 
+            else {
                 Console.WriteLine("「{0}」の略語は{1}です。", wJapanese, wAbbreviation);
+            }
+               
             Console.WriteLine();
 
             foreach (var item in wAbbrs.FindAll("国際")) {
@@ -46,15 +50,11 @@ namespace Practice7_1_2 {
                 Console.WriteLine("\n{0}が見つかりません。", wRemoveKey);
             }
             Console.WriteLine();
-            //
+            
             var wNewDict = wAbbrs.GetAbbreviationsOnlyThreeCharacter();
             foreach(var item in wNewDict) {
                 Console.WriteLine("{0}={1}", item.Key, item.Value);
             }
-
-
-
-
         }
     }
 }
