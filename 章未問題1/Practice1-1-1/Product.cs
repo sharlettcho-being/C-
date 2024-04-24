@@ -1,6 +1,5 @@
 ﻿namespace Practice1_1_1 {
-    internal class Product
-    {
+    internal class Product{
         /// <summary>
         /// 商品コード
         /// </summary>
@@ -20,8 +19,7 @@
         /// 消費税額を求める（消費税率は8%）
         /// </summary>
         /// <returns>税金8％が含んでる消費</returns>
-        public int GetTax()
-        {
+        public int GetTax(){
             return (int)(this.Price * 0.08);
         }
 
@@ -29,8 +27,7 @@
         /// 税込価格を求める
         /// </summary>
         /// <returns>税込価格</returns>
-        public int GetPriceIncludingTax()
-        {
+        public int GetPriceIncludingTax(){
             return this.Price + GetTax();
         }
     }

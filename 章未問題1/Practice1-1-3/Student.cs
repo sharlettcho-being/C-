@@ -1,8 +1,10 @@
 ﻿using System;
 
 namespace Practice1_1_3 {
-    internal class Student : Person
-    {
+    /// <summary>
+    /// グレード、クラス名を持っているクラス
+    /// </summary>
+    internal class Student : Person{
         /// <summary>
         /// 学年
         /// </summary>
@@ -16,8 +18,7 @@ namespace Practice1_1_3 {
         /// <summary>
         /// 引数なしょコンストラクタ
         /// </summary>
-        public Student()
-        {
+        public Student(){
             this.Grade = 0;
             this.ClassNumber = 0;
         }
@@ -29,13 +30,11 @@ namespace Practice1_1_3 {
         /// <param name="className">クラス名</param>
         /// <param name="name">名前</param>
         /// <param name="birthday">誕生日</param>
-        public Student(int vGrade, int vClassName, string vName, DateTime vBirthday) : base(vName, vBirthday)
-        {
+        public Student(int vGrade, int vClassName, string vName, DateTime vBirthday) : base(vName, vBirthday){
             this.Grade = vGrade;
             this.ClassNumber = vClassName;
             this.Name = vName;
             this.Birthday = vBirthday;
-
         }
     }
 }

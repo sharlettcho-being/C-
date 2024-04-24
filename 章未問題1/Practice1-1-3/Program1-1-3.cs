@@ -1,14 +1,12 @@
 ﻿using System;
 
 namespace Practice1_1_3 {
-    internal class Program
-    {
+    internal class Program{
         /// <summary>
         /// 学生の名前、年齢、学年、クラス番号の表示
         /// </summary>
         /// <param name="args"></param>
-        static void Main(string[] args)
-        {
+        static void Main(string[] args){
             Student FStudent = new Student();
             FStudent.Name = "ス";
             FStudent.Birthday = DateTime.Parse("2018-4-10");
