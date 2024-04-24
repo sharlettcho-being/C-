@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Practice3_1_2
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            int index = -1;
-            var names = new List<string> {"Tokyo", "New Delhi", "Bangkok", "London", "Paris",
+namespace Practice3_1_2 {
+    internal class Program{
+        /// <summary>
+        /// 都市名が格納されているリストに関しての処理
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main(string[] args){
+            //初期化
+            int wIndex = -1;
+            var wCityNameList = new List<string> {"Tokyo", "New Delhi", "Bangkok", "London", "Paris",
                         "Berlin", "Canberra", "Hong Kong"};
 
             //質問①=>FindIndexを使って入力された名を調べる
@@ -20,25 +20,27 @@ namespace Practice3_1_2
 
             Console.WriteLine("入力された名が何番目にあるか？");
 
-            index = names.FindIndex(s => s.ToLower() == wCityName.ToLower());
-            if (index > 0)
-                Console.WriteLine(index);
-            else Console.WriteLine(index);
+            wIndex = wCityNameList.FindIndex(s => s.ToLower() == wCityName.ToLower());
+            if (wIndex > 0) {
+                Console.WriteLine(wIndex);
+            } 
+            else {
+                Console.WriteLine(wIndex);
+            }
 
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("小文字 'o'が含まれている都市名のカウント");
 
             //質問②=>小文字 'o'が含まれている都市名のカウントを計算する
-            int count = names.Where(s => s.Contains('o')).Count();
-            Console.WriteLine(count);
+            int wCityNameCountIncludeLowerCaseO = wCityNameList.Where(s => s.Contains('o')).Count();
+            Console.WriteLine(wCityNameCountIncludeLowerCaseO);
 
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("小文字 'o'が含まれている都市名");
 
             //質問③=>Whereを使って、小文字 'o'が含まれている都市名を表示する
-            var count2 = names.Where(s => s.Contains('o')).ToArray();
-            foreach(var cityname in count2)
-            {
+            var wCityNameIncludeLowerCaseO = wCityNameList.Where(s => s.Contains('o')).ToArray();
+            foreach(var cityname in wCityNameIncludeLowerCaseO) {
                 Console.WriteLine(cityname);
             }
 
@@ -46,12 +48,10 @@ namespace Practice3_1_2
             Console.WriteLine("'B'で始まる都市名の文字数");
 
             //質問④=>'B'で始まる都市名の文字数
-            var result = names.Where(x => x[0] == 'B').Select(x => x.Length);
-            foreach(var length in result)
-            {
+            var wCitynameLengthBeginingWithB = wCityNameList.Where(x => x[0] == 'B').Select(x => x.Length);
+            foreach(var length in wCitynameLengthBeginingWithB) {
                 Console.WriteLine(length);
-            }            
-
+            }         
         }
     }
 }
