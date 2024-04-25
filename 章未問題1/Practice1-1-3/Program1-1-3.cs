@@ -7,13 +7,9 @@ namespace Practice1_1_3 {
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args){
-            Student FStudent = new Student();
-            FStudent.Name = "ス";
-            FStudent.Birthday = DateTime.Parse("2018-4-10");
-            FStudent.Grade = 1;
-            FStudent.ClassNumber = 1;
+            Student wStudent = new Student(1, 1, "ス", DateTime.Parse("2018-4-10"));
 
-            Console.WriteLine($"名前:{FStudent.Name}\n年齢:{FStudent.GetAge()}\n学年: {FStudent.Grade} \nクラス番号:{FStudent.ClassNumber}");
+            Console.WriteLine($"名前:{wStudent.Name}\n年齢:{wStudent.GetAge()}\n学年: {wStudent.Grade} \nクラス番号:{wStudent.ClassNumber}");
 
             Person wPerson = new Student(1, 2, "チョ", DateTime.Parse("2018-4-10"));
             wPerson.Name = "チョ";
