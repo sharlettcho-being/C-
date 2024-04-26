@@ -9,13 +9,13 @@ namespace Practice5_1_4 {
             //初期化
             var wText = "NoveList=谷崎潤一郎;BestWork=春琴抄;Born=1886";
             //作家を取得する
-            string wNoveList = GetData(wText, "NoveList=");
+            var wNoveList = GetData(wText, "NoveList=");
 
             //代表作を取得する
-            string wBestWork = GetData(wText, "BestWork=");
+            var wBestWork = GetData(wText, "BestWork=");
 
             //誕生日を取得する
-            string wBorn = GetData(wText, "Born=");
+            var wBorn = GetData(wText, "Born=");
 
             Console.WriteLine($"作家　: {wNoveList}\n代表作: {wBestWork}\n誕生日: {wBorn}");
 
