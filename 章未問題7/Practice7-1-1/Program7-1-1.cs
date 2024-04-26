@@ -30,23 +30,23 @@ namespace Practice7_1_1 {
         public static void CountAlphabetCharactersUsingDictionary(string vText) {
             Dictionary<char, int> wDict = new Dictionary<char, int>();
 
-            foreach (char ch in vText.ToUpper()) {
-                if (ch >= 'A' && ch <= 'Z') {
-                    if (wDict.ContainsKey(ch)) {
-                        wDict[ch]++;
+            foreach (char wChar in vText.ToUpper()) {
+                if (wChar >= 'A' && wChar <= 'Z') {
+                    if (wDict.ContainsKey(wChar)) {
+                        wDict[wChar]++;
                     } 
                     else {
-                        wDict.Add(ch, 1);
+                        wDict.Add(wChar, 1);
                     }
                 }
             }
             //ディクショナリをキー順に並べ替える
-            var wResult = wDict.OrderBy(pair => pair.Key);
+            var wResult = wDict.OrderBy(wpair => wpair.Key);
 
             Console.WriteLine("-----ディクショナリを使った結果\"-----");
             //結果を表示する
-            foreach (var item in wResult) {
-                Console.WriteLine($"'{item.Key}' : \t{item.Value}");
+            foreach (var wItem in wResult) {
+                Console.WriteLine($"'{wItem.Key}' : \t{wItem.Value}");
             }
          }
 
@@ -58,13 +58,13 @@ namespace Practice7_1_1 {
         public static void CountAlphabetCharactersUsingSortedDictionary(string vText) {
             SortedDictionary<char, int> wSortedDict = new SortedDictionary<char, int>();
 
-            foreach (char ch in vText.ToUpper()) {
-                if (ch >= 'A' && ch <= 'Z') {
-                    if (wSortedDict.ContainsKey(ch)) {
-                        wSortedDict[ch]++;
+            foreach (char wChar in vText.ToUpper()) {
+                if (wChar >= 'A' && wChar <= 'Z') {
+                    if (wSortedDict.ContainsKey(wChar)) {
+                        wSortedDict[wChar]++;
                     } 
                     else {
-                        wSortedDict.Add(ch, 1);
+                        wSortedDict.Add(wChar, 1);
                     }
                 }
             }

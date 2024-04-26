@@ -31,8 +31,8 @@ namespace Practice7_1_2 {
                
             Console.WriteLine();
 
-            foreach (var item in wAbbrs.FindAll("国際")) {
-                Console.WriteLine("{0}={1}", item.Key, item.Value);
+            foreach (var wItem in wAbbrs.FindAll("国際")) {
+                Console.WriteLine("{0}={1}", wItem.Key, wItem.Value);
             }
             Console.WriteLine();
 
@@ -52,8 +52,8 @@ namespace Practice7_1_2 {
             Console.WriteLine();
             
             var wNewDict = wAbbrs.GetAbbreviationsOnlyThreeCharacter();
-            foreach(var item in wNewDict) {
-                Console.WriteLine("{0}={1}", item.Key, item.Value);
+            foreach(var wItem in wNewDict) {
+                Console.WriteLine("{0}={1}", wItem.Key, wItem.Value);
             }
         }
     }
