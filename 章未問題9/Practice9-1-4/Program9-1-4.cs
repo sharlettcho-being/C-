@@ -18,14 +18,14 @@ namespace Practice9_1_4 {
                 if (Directory.Exists(wCopyDirectory)) {
                     //コピーされるパスにあるファイルの取得
                     string[] wFiles = Directory.GetFiles(wSourctDirectory);
-                    foreach (var file in wFiles)
+                    foreach (var wFile in wFiles)
                     {
                         //各ファイルの名前（拡張子抜く）に_bakを追加し、拡張子を付ける
-                        string wFilename = Path.GetFileNameWithoutExtension(file) + "_bak" + Path.GetExtension(file);
+                        string wFilename = Path.GetFileNameWithoutExtension(wFile) + "_bak" + Path.GetExtension(wFile);
                         //コピーするファイルの名前とパスを合わせる
                         var wCopyFilename = Path.Combine(wCopyDirectory, wFilename);
                         //ファイルをコピーする
-                        File.Copy(file, wCopyFilename, overwrite: true);
+                        File.Copy(wFile, wCopyFilename, overwrite: true);
 
                         Console.WriteLine("ファイルコピー完了！");
                     }                    

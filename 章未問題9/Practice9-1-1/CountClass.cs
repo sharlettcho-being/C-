@@ -55,8 +55,8 @@ namespace Practice9_1_1 {
             wCount = 0;
             if (File.Exists(vFilePath)) {
                 var wLines = File.ReadLines(vFilePath);
-                foreach (var line in wLines) {
-                    wCount = CountClassKeywords(line);
+                foreach (var wLine in wLines) {
+                    wCount = CountClassKeywords(wLine);
                 }
             }
             return wCount;

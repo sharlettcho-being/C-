@@ -16,12 +16,12 @@ namespace Practice9_1_5 {
             //指定したディレクトリの配下にあるファイルを取得
             var wFiles = wDirectioryInfo.EnumerateFiles("*.*", SearchOption.AllDirectories);
            
-            foreach (var file in wFiles) {
+            foreach (var wFile in wFiles) {
                 //ファイルのサイズを取得
-                double wFileSize = file.Length;
+                double wFileSize = wFile.Length;
                 //ファイルサイズをチェックする
                 if (wFileSize > 1048576) {
-                    Console.WriteLine(file.Name);
+                    Console.WriteLine(wFile.Name);
                 }
             }
 
