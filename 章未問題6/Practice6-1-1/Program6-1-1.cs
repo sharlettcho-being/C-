@@ -39,8 +39,8 @@ namespace Practice6_1_1 {
         public static void DisplayLastTwoElements(int[] vNumbers) {
             var wLastNumbers = vNumbers.Reverse().Take(2);
             Console.WriteLine("------ 最初から2つの要素 ------");
-            foreach (var number in wLastNumbers) {
-                Console.WriteLine(number);
+            foreach (var wNumber in wLastNumbers) {
+                Console.WriteLine(wNumber);
             }
         }
         /// <summary>
@@ -50,8 +50,8 @@ namespace Practice6_1_1 {
         public static void ConvertNumbersToStrings(int[] vNumbers) {
             var wTexts = vNumbers.Select(x => x.ToString()).ToArray();
             Console.WriteLine("------ 数値を文字列に変換した結果 ------");
-            foreach (var text in wTexts) {
-                Console.WriteLine(text);
+            foreach (var wText in wTexts) {
+                Console.WriteLine(wText);
             }
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Practice6_1_1 {
         public static void DisplayFirstThreeNumbersInAscendingOrder(int[] vNumbers) {
             var wNewNumber = vNumbers.OrderBy(x => x).Take(3);
             Console.WriteLine("------ 数の小さい順に並べ、先頭から3つの要素 ------");
-            foreach (var number in wNewNumber) {
-                Console.WriteLine(number);
+            foreach (var wNumber in wNewNumber) {
+                Console.WriteLine(wNumber);
             }
         }
         /// <summary>
@@ -70,9 +70,9 @@ namespace Practice6_1_1 {
         /// </summary>
         /// <param name="vNumbers">数値が格納された配列</param>
         public static void CountDistinctValuesGreaterThanTen(int[] vNumbers) {
-            var wNumbaer2 = vNumbers.Distinct().Where(x => x > 10).Count();
+            var wCount = vNumbers.Distinct().Where(x => x > 10).Count();
             Console.WriteLine("------ 重複を排除し、10より大きい値のカウント ------");
-            Console.WriteLine(wNumbaer2);
+            Console.WriteLine(wCount);
         }
     }
 }

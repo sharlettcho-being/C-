@@ -89,8 +89,8 @@ namespace Practice6_1_2 {
         public static void DisplayBooksOver400PagesInDescendingOrderOfPrice(List<Book> vBooks) {
             var wNewBook = vBooks.OrderByDescending(x => x.Price).Where(x => x.Pages >= 400).ToList();
             Console.WriteLine("\n------　ページ数が400以上の書籍を、価格の高い順に表示　------");
-            foreach (var book in wNewBook) {
-                Console.WriteLine($"タイトル:  {book.Title} \n価格    :  {book.Price}");
+            foreach (var wBook in wNewBook) {
+                Console.WriteLine($"タイトル:  {wBook.Title} \n価格    :  {wBook.Price}");
             }
         }
         /// <summary>
@@ -100,8 +100,8 @@ namespace Practice6_1_2 {
         public static void FindTitlesContainingCSharpAndUnder500Pages(List<Book> vBooks) {
             var wBook2 = vBooks.Where(x => x.Title.Contains("C#") && x.Pages <= 500);
             Console.WriteLine("\n------　タイトルに”C#”が含まれかつ500ページ以下の本のタイトル　------");
-            foreach (var book in wBook2) {
-                Console.WriteLine($"タイトル:   {book.Title}");
+            foreach (var wBook in wBook2) {
+                Console.WriteLine($"タイトル:   {wBook.Title}");
             }
         }
     }
