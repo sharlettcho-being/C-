@@ -5,12 +5,15 @@ namespace Practice1_1_2 {
         /// <summary>
         /// X、Yプロパティを持っているクラス
         /// </summary>
-        class MyClass
-        {
+        class MyClass{
             public int X { get; set; }
             public int Y { get; set; }
 
-            //コンストラクタ
+            /// <summary>
+            /// 新しいMyClass構造体のインスタンスを作成します。
+            /// </summary>
+            /// <param name="vX">X座標の値</param>
+            /// <param name="vY">Y座標の値</param>
             public MyClass(int vX, int vY){
                 this.X = vX;
                 this.Y = vY;
@@ -24,7 +27,11 @@ namespace Practice1_1_2 {
             public int X { get; set; }
             public int Y { get; set; }
 
-            //コンストラクタ
+            /// <summary>
+            /// 新しいMyStruct構造体のインスタンスを作成します。
+            /// </summary>
+            /// <param name="vX">X座標の値</param>
+            /// <param name="vY">Y座標の値</param>
             public MyStruct(int vX, int vY){
                 this.X = vX;
                 this.Y = vY;

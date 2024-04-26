@@ -1,4 +1,8 @@
 ﻿namespace Practice1_1_1 {
+    /// <summary>
+    /// 商品コード、商品名、商品価格を持つクラス
+    /// 消費税額を求めるメソッドも持つ
+    /// </summary>
     internal class Product{
         /// <summary>
         /// 商品コード

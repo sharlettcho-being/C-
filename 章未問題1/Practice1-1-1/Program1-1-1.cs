@@ -7,11 +7,11 @@ namespace Practice1_1_1 {
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args){
-            Product FProduct = new Product();
-            FProduct.Code = 98;
-            FProduct.Price = 210;
+            Product wProduct = new Product();
+            wProduct.Code = 98;
+            wProduct.Price = 210;
 
-            Console.WriteLine(FProduct.GetTax());
+            Console.WriteLine(wProduct.GetTax());
         }
     }
 }
