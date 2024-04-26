@@ -13,31 +13,31 @@ namespace Practice3_1_1 {
 
             Console.WriteLine("リストでの要素を８か９で割り切れる数があるかどうか？");
             //質問①＝＞リストでの要素を８か９で割り切れる数があるかどうか
-            var wElements8Or9byDivisibleNumber = wNumbersList.Exists(x => x % 8 == 0 || x % 9 == 0);
-            Console.WriteLine(wElements8Or9byDivisibleNumber);
+            var wHasElements8Or9byDivisibleNumber = wNumbersList.Exists(x => x % 8 == 0 || x % 9 == 0);
+            Console.WriteLine(wHasElements8Or9byDivisibleNumber);
 
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("リストの各要素を2.0で割った値");
 
             //質問②＝＞リストの各要素を2.0で割った値
-            wNumbersList.ForEach(elementsDividedByTwo => Console.WriteLine(elementsDividedByTwo / 2.0));
+            wNumbersList.ForEach(x => Console.WriteLine(x / 2.0));
 
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("リストでの値が50以上の要素");
 
             //質問③＝＞リストでの値が50以上の要素
             var wValuesAbove50 = wNumbersList.Where(x => x >= 50);
-            foreach(var item in wValuesAbove50){
-                Console.WriteLine(item);
+            foreach(var wItem in wValuesAbove50){
+                Console.WriteLine(wItem);
             }
 
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("リストでの値を2倍にした結果");
 
             //質問④＝＞リストでの値を2倍にしてリストに格納する
-            List<int> wDoubledValuesList = wNumbersList.Select(x => x * 2).ToList();
-            foreach(var item in wDoubledValuesList){
-                Console.WriteLine(item);
+            var wDoubledValuesList = wNumbersList.Select(x => x * 2).ToList();
+            foreach(var wItem in wDoubledValuesList){
+                Console.WriteLine(wItem);
             }
         }
     }

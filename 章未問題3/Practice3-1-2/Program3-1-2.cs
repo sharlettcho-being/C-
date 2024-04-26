@@ -21,12 +21,8 @@ namespace Practice3_1_2 {
             Console.WriteLine("入力された名が何番目にあるか？");
 
             wIndex = wCityNameList.FindIndex(x => x.ToLower() == wCityName.ToLower());
-            if (wIndex > 0) {
-                Console.WriteLine(wIndex);
-            } 
-            else {
-                Console.WriteLine(wIndex);
-            }
+            Console.WriteLine(wIndex);
+
 
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("小文字 'o'が含まれている都市名のカウント");
@@ -40,8 +36,8 @@ namespace Practice3_1_2 {
 
             //質問③=>Whereを使って、小文字 'o'が含まれている都市名を表示する
             var wCityNameIncludeLowerCaseO = wCityNameList.Where(x => x.Contains('o')).ToArray();
-            foreach(var cityname in wCityNameIncludeLowerCaseO) {
-                Console.WriteLine(cityname);
+            foreach(var wCityname in wCityNameIncludeLowerCaseO) {
+                Console.WriteLine(wCityname);
             }
 
             Console.WriteLine("-------------------------------------------------");
@@ -49,8 +45,8 @@ namespace Practice3_1_2 {
 
             //質問④=>'B'で始まる都市名の文字数
             var wCitynameLengthBeginingWithB = wCityNameList.Where(x => x[0] == 'B').Select(x => x.Length);
-            foreach(var length in wCitynameLengthBeginingWithB) {
-                Console.WriteLine(length);
+            foreach(var wLength in wCitynameLengthBeginingWithB) {
+                Console.WriteLine(wLength);
             }         
         }
     }
