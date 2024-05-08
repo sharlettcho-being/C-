@@ -6,17 +6,11 @@
         /// <summary>
         /// 年の値を取得します。
         /// </summary>
-        /// /// <remarks>
-        /// このプロパティは年の値を表します。
-        /// </remarks>
         public int Year { get; private set;}
 
         /// <summary>
         /// 月の値を取得します。
         /// </summary>
-        /// <remarks>
-        /// このプロパティは月の値を表します。
-        /// </remarks>
         public int Month { get; private set; }
 
         public YearMonth(int vYear, int vMonth){
@@ -39,9 +33,6 @@
         /// <returns>1カ月後の年・月を返す</returns>
         public YearMonth AddOneMonth(){
             YearMonth wNewYearMonth = new YearMonth(Year, Month);
-            wNewYearMonth.Year = Year;
-            wNewYearMonth.Month = Month;
-
             if (Month == 12){
                 wNewYearMonth.Year++;
                 wNewYearMonth.Month = 1;

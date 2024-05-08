@@ -15,12 +15,12 @@ namespace Practice4_1_2 {
 
             Console.WriteLine("--------配列にある初期値---------");
             // 配列の要素を表示する
-            foreach (YearMonth yearMonth in wYearMonths) {
-                Console.WriteLine(yearMonth);
+            foreach (YearMonth wYearMonth in wYearMonths) {
+                Console.WriteLine(wYearMonth);
             }
 
             //最初の21世紀を調べる
-            var wFirst21Century = FindFirst21stCenturyYearMonth(wYearMonths);
+            var wFirst21Century = wYearMonths.Where(x => x.Year >= 2001 && x.Year <= 2100).FirstOrDefault();
             if(wFirst21Century != null){
                 Console.WriteLine($"最初にみつかった21世紀：　{wFirst21Century}");
             }
@@ -32,19 +32,9 @@ namespace Practice4_1_2 {
 
             Console.WriteLine("--------1カ月後に変更した値---------");
 
-            foreach (YearMonth nextMonth in wOneMonthAfterChangedMonth) {
-                Console.WriteLine(nextMonth);
+            foreach (YearMonth wNextMonth in wOneMonthAfterChangedMonth) {
+                Console.WriteLine(wNextMonth);
             }
-        }
-        //最初にみつかった21世紀を調べる
-        public static YearMonth FindFirst21stCenturyYearMonth(YearMonth[] vYearMonths){
-            foreach (YearMonth yearMonth in vYearMonths) {
-                if (yearMonth.Is21Century){
-                    //見つかったYearMonthを返す
-                    return yearMonth;
-                }
-            }
-            return null; // 21世紀のYearMonthが見つからなかった場合はnullを返す
         }
     }
 }
