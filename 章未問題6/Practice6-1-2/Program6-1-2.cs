@@ -19,31 +19,39 @@ namespace Practice6_1_2 {
                 new Book{Title = "楽しいC#プログラミング教室", Price = 2540, Pages = 348},
              
             };
+
             //タイトルがワンダフル・C#ライフ”である書籍の価格とページ数を表示する
-            DisplayPriceAndPageCountOfWonderfulCSharpLife(wBooks);
+            DisplayBookInfoOfWCSharpLife(wBooks);
             //タイトルに”C#”が含まれている書籍のカウントを表示する
             CountBooksContainingCSharpInTitle(wBooks);
             //タイトルに”C#”が含まれている書籍の平均ページ数を求める
-            GetAveragePageCountOfFirstBookOver400Yen(wBooks);
+            GetAveragePagesOfCSharpBooks(wBooks);
             //価格が4000円以上の本で最初に見つかった書籍のタイトルを表示する
             GetTitleOfFirstBookOver4000Yen(wBooks);
             //価格が4000未満の本の中で最大のページ数を求める
             GetMaxPageCountOfBooksUnder4000Yen(wBooks);
             //ページ数が400以上の書籍を、価格の高い順に表示（タイトルと価格を表示）
-            DisplayBooksOver400PagesInDescendingOrderOfPrice(wBooks);
+            DisplayBooksDescendingPriceOver400Pages(wBooks);
             //タイトルに”C#”が含まれかつ500ページ以下の本のタイトルを表示する
-            FindTitlesContainingCSharpAndUnder500Pages(wBooks);            
+            FindCSharpTitlesUnder500Pages(wBooks);            
 
         }
+
         /// <summary>
         /// タイトルがワンダフル・C#ライフ”である書籍の価格とページ数を表示する
         /// </summary>
         /// <param name="vBooks">本のタイトル・価格・ページ数を持っているリスト</param>
-        public static void DisplayPriceAndPageCountOfWonderfulCSharpLife(List<Book> vBooks) {
-            var wPrices = vBooks.FirstOrDefault(x => x.Title.Contains("ワンダフル・C#ライフ")).Price;
-            var wPages = vBooks.FirstOrDefault(x => x.Title.Contains("ワンダフル・C#ライフ")).Pages;
-            Console.WriteLine("------タイトルがワンダフル・C#ライフ”である書籍　------");
-            Console.WriteLine($"価格    : 　{wPrices} \nページ数: 　{wPages}");
+        public static void DisplayBookInfoOfWCSharpLife(List<Book> vBooks) {
+            var wBookInfos = vBooks.FirstOrDefault(x => x.Title.Contains("ワンダフル・C#ライフ"));           
+
+            if (wBookInfos != null) {
+                Console.WriteLine("------タイトルがワンダフル・C#ライフ”である書籍　------");
+                Console.WriteLine($"価格    : 　{wBookInfos.Price} \nページ数: 　{wBookInfos.Pages}");
+            } 
+            else {
+                // 該当する本が見つからなかった場合の処理
+                Console.WriteLine("該当する本が見つかりませんでした。");
+            }
         }
         /// <summary>
         /// タイトルに”C#”が含まれている書籍のカウントを表示する
@@ -59,7 +67,7 @@ namespace Practice6_1_2 {
         /// タイトルに”C#”が含まれている書籍の平均ページ数を求める
         /// </summary>
         /// <param name="vBooks">本のタイトル・価格・ページ数を持っているリスト</param>
-        public static void GetAveragePageCountOfFirstBookOver400Yen(List<Book> vBooks) {
+        public static void GetAveragePagesOfCSharpBooks(List<Book> vBooks) {
             var wAverage = vBooks.Where(x => x.Title.Contains("C#")).Average(y => y.Pages);
             Console.WriteLine("\n------　タイトルに”C#”が含まれている書籍の平均ページ数　------");
             Console.WriteLine(wAverage.ToString());
@@ -86,8 +94,8 @@ namespace Practice6_1_2 {
         /// ページ数が400以上の書籍を、価格の高い順に表示（タイトルと価格を表示）
         /// </summary>
         /// <param name="vBooks">本のタイトル・価格・ページ数を持っているリスト</param>
-        public static void DisplayBooksOver400PagesInDescendingOrderOfPrice(List<Book> vBooks) {
-            var wNewBook = vBooks.OrderByDescending(x => x.Price).Where(x => x.Pages >= 400).ToList();
+        public static void DisplayBooksDescendingPriceOver400Pages(List<Book> vBooks) {
+            var wNewBook = vBooks.Where(x => x.Pages >= 400).OrderByDescending(x => x.Price).ToList();
             Console.WriteLine("\n------　ページ数が400以上の書籍を、価格の高い順に表示　------");
             foreach (var wBook in wNewBook) {
                 Console.WriteLine($"タイトル:  {wBook.Title} \n価格    :  {wBook.Price}");
@@ -97,7 +105,7 @@ namespace Practice6_1_2 {
         /// タイトルに”C#”が含まれかつ500ページ以下の本のタイトルを表示する
         /// </summary>
         /// <param name="vBooks">本のタイトル・価格・ページ数を持っているリスト</param>
-        public static void FindTitlesContainingCSharpAndUnder500Pages(List<Book> vBooks) {
+        public static void FindCSharpTitlesUnder500Pages(List<Book> vBooks) {
             var wBook2 = vBooks.Where(x => x.Title.Contains("C#") && x.Pages <= 500);
             Console.WriteLine("\n------　タイトルに”C#”が含まれかつ500ページ以下の本のタイトル　------");
             foreach (var wBook in wBook2) {
