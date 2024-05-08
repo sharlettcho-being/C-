@@ -29,8 +29,8 @@ namespace Practice5_1_3 {
         /// <param name="vText"></param>
         public static void FindWhiteSpaceCount(string vText) {
             int wWhiteSpaceCount = 0;
-            foreach (char wChar in vText)
-                if (char.IsWhiteSpace(wChar)) {
+            foreach (char wWord in vText)
+                if (char.IsWhiteSpace(wWord)) {
                     wWhiteSpaceCount++;
                 }
             Console.WriteLine(wWhiteSpaceCount.ToString());
@@ -60,9 +60,9 @@ namespace Practice5_1_3 {
         /// <param name="vText"></param>
         public static void OutputTango(string vText) {
             var wWords = vText.Split(' ');
-            foreach (var wChar in wWords) {
-                if (wChar.Length <= 4) {
-                    Console.WriteLine(wChar.ToString());
+            foreach (var wWord in wWords) {
+                if (wWord.Length <= 4) {
+                    Console.WriteLine(wWord.ToString());
                 }
             }
         }
@@ -74,8 +74,8 @@ namespace Practice5_1_3 {
         public static void ReplaceOriginalText(string vText) {
             var wWords = vText.Split(' ');
             var wNewText = new StringBuilder();
-            foreach (var wChar in wWords) {
-                wNewText.Append(wChar.ToString());
+            foreach (var wWord in wWords) {
+                wNewText.Append(wWord.ToString());
             }
             Console.WriteLine(wNewText.ToString());
         }

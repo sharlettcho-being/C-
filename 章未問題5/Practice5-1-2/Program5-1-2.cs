@@ -7,11 +7,11 @@ namespace Practice5_1_2 {
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args) {
-            int wNumber;
-            Console.WriteLine("数字文字列を記入お願いします。");
-           int.TryParse(Console.ReadLine(), out wNumber);
 
-           Console.WriteLine($"{wNumber:#,0}");
+            Console.WriteLine("数字文字列を記入お願いします。");
+            int.TryParse(Console.ReadLine(), out int wNumber);
+
+            Console.WriteLine($"{wNumber:#,0}");
         }
     }
 }
