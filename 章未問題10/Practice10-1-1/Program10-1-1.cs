@@ -16,8 +16,7 @@ namespace Practice10_1_1 {
 
             if (IsMatch) {
                 Console.WriteLine($"{wPhoneNumber} は携帯電話の電話番号です。");
-            } 
-            else {
+            } else {
                 Console.WriteLine($"{wPhoneNumber} は携帯電話の電話番号ではありません。");
             }
 
