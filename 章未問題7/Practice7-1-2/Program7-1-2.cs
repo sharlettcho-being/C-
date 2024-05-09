@@ -13,8 +13,7 @@ namespace Practice7_1_2 {
                 var wfullname = wAbbrs[name];
                 if (wfullname == null) {
                     Console.WriteLine("{0}は見つかりません。", name);
-                }                    
-                else {
+                } else {
                     Console.WriteLine("{0}={1}", name, wfullname);
                 }
             }
@@ -24,8 +23,7 @@ namespace Practice7_1_2 {
             var wAbbreviation = wAbbrs.ToAbbreviation(wJapanese);
             if (wAbbreviation == null) {
                 Console.WriteLine("{0}は見つかりません", wJapanese);
-            } 
-            else {
+            } else {
                 Console.WriteLine("「{0}」の略語は{1}です。", wJapanese, wAbbreviation);
             }
                
@@ -44,9 +42,7 @@ namespace Practice7_1_2 {
             var wResult = wAbbrs.Remove(wRemoveKey);
             if(wResult){
                 Console.WriteLine("\n{0}が削除できました！", wRemoveKey);
-            } 
-            else
-            {
+            } else {
                 Console.WriteLine("\n{0}が見つかりません。", wRemoveKey);
             }
             Console.WriteLine();
