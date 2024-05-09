@@ -68,8 +68,8 @@ namespace Practice12_1_2 {
                 var wNoveList = wDeserializer.Deserialize(wReader) as NoveList;
                 Console.WriteLine(wNoveList.Name);
                 Console.WriteLine(wNoveList.Birth);
-                foreach (var novel in wNoveList.Masterpieces) {
-                    Console.WriteLine(novel);
+                foreach (var wNovel in wNoveList.Masterpieces) {
+                    Console.WriteLine(wNovel);
 
                 }
             }
