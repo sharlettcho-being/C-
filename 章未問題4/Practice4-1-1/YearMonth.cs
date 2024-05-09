@@ -38,8 +38,7 @@
             if (Month == 12){
                 wNewYearMonth.Year++;
                 wNewYearMonth.Month = 1;
-            }
-            else{
+            } else {
                 wNewYearMonth.Month++;
             }
 
