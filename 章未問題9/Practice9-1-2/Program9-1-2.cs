@@ -27,8 +27,7 @@ namespace Practice9_1_2 {
                     }
                 }
                 Console.WriteLine("別のテキストファイルに出力完了！");
-            }
-            else {
+            } else {
                 Console.WriteLine("指定された入力ファイルが見つかりませんでした。");
             }
         }
