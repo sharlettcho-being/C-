@@ -17,8 +17,7 @@ namespace Practice5_1_1 {
             //入力された文字列２つを比較する
             if (String.Compare(wText, wText2, new CultureInfo("ja-JP"), CompareOptions.IgnoreCase) == 0){
                 Console.WriteLine("等しい！");
-            } 
-            else{
+            } else {
                 Console.WriteLine("等しくない！");
             }
         }

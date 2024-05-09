@@ -40,10 +40,9 @@ namespace Practice5_1_4 {
             }
 
             // スタート位置からエンド位置までの間の部分文字列を取得し、それを戻り値として返す
-            if ((wStartIndex > 0) & (wEndIndex > 0)) {
+            if (wStartIndex > 0 && wEndIndex > wStartIndex) {
                 return (vText.Substring(wStartIndex, wEndIndex - wStartIndex));
-            } 
-            else {
+            } else {
                 return null;
             }
            
