@@ -47,8 +47,7 @@ namespace Practice6_1_2 {
             if (wBookInfos != null) {
                 Console.WriteLine("------タイトルがワンダフル・C#ライフ”である書籍　------");
                 Console.WriteLine($"価格    : 　{wBookInfos.Price} \nページ数: 　{wBookInfos.Pages}");
-            } 
-            else {
+            } else {
                 // 該当する本が見つからなかった場合の処理
                 Console.WriteLine("該当する本が見つかりませんでした。");
             }
