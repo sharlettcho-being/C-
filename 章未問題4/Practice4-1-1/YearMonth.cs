@@ -23,7 +23,7 @@
         /// </summary>
         public bool Is21Century{
             get{
-                return Year >= 2001 && Year <= 2100;
+                return this.Year >= 2001 && this.Year <= 2100;
             }
         }
 
@@ -32,10 +32,10 @@
         /// </summary>
         /// <returns>1カ月後の年・月を返す</returns>
         public YearMonth AddOneMonth(){
-            YearMonth wNewYearMonth = new YearMonth(Year, Month);
+            YearMonth wNewYearMonth = new YearMonth(this.Year, this.Month);
 
             //12月の場合
-            if (Month == 12){
+            if (this.Month == 12){
                 wNewYearMonth.Year++;
                 wNewYearMonth.Month = 1;
             } else {
@@ -50,7 +50,7 @@
         /// </summary>
         /// <returns>〇〇年○○月の形を返す</returns>
         public override string ToString(){
-            return ($"{Year}年{Month}月");
+            return ($"{this.Year}年{this.Month}月");
         }
     }
 }
