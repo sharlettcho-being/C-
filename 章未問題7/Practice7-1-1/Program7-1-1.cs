@@ -4,10 +4,6 @@ using System.Linq;
 
 namespace Practice7_1_1 {
     internal class Program {
-        /// <summary>
-        /// 文字列から各アルファベット文字が何文字ずつ現れるかカウントする。
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
             //初期化
             var wText = "Cozy Lummox gives smart squid who asks for job pen";
@@ -24,54 +20,52 @@ namespace Practice7_1_1 {
 
         /// <summary>
         /// ディクショナリを使って各アルファベット文字が何文字ずつ現れるかカウントしました。
-        /// 順に並べ替える処理が必要！
+        /// キーが挿入された順序で保持されるので順に並べ替える処理が必要！
         /// </summary>
         /// <param name="vText">文字列</param>
         public static void CountAlphabetCharactersUsingDictionary(string vText) {
-            Dictionary<char, int> wDict = new Dictionary<char, int>();
+            var wDict = new Dictionary<char, int>();
 
             foreach (char wChar in vText.ToUpper()) {
-                if (wChar >= 'A' && wChar <= 'Z') {
-                    if (wDict.ContainsKey(wChar)) {
-                        wDict[wChar]++;
-                    } else {
-                        wDict.Add(wChar, 1);
-                    }
+                if (!char.IsLetter(wChar)) continue;
+                if (wDict.ContainsKey(wChar)) {
+                    wDict[wChar]++;
+                } else {
+                    wDict.Add(wChar, 1);
                 }
             }
-            //ディクショナリをキー順に並べ替える
-            var wResult = wDict.OrderBy(wpair => wpair.Key);
+            // Dictionaryはキーが挿入された順序で保持されるので順に並べ替える処理が必要！
+            var wWords = wDict.OrderBy(wpair => wpair.Key);
 
             Console.WriteLine("-----ディクショナリを使った結果\"-----");
             //結果を表示する
-            foreach (var wItem in wResult) {
-                Console.WriteLine($"'{wItem.Key}' : \t{wItem.Value}");
+            foreach (var wWord in wWords) {
+                Console.WriteLine($"'{wWord.Key}' : \t{wWord.Value}");
             }
          }
 
         /// <summary>
         /// ソートディクショナリを使って各アルファベット文字が何文字ずつ現れるかカウントしました。
-        /// 順に並べ替える処理が不要！
+        /// キーが自動的にソートされ、昇順に保持されるので順に並べ替える処理が不要！
         /// </summary>
         /// <param name="vText">文字列</param>
         public static void CountAlphabetCharactersUsingSortedDictionary(string vText) {
             SortedDictionary<char, int> wSortedDict = new SortedDictionary<char, int>();
 
             foreach (char wChar in vText.ToUpper()) {
-                if (wChar >= 'A' && wChar <= 'Z') {
-                    if (wSortedDict.ContainsKey(wChar)) {
-                        wSortedDict[wChar]++;
-                    } else {
-                        wSortedDict.Add(wChar, 1);
-                    }
+                if (!char.IsLetter(wChar)) continue;
+                if (wSortedDict.ContainsKey(wChar)) {
+                    wSortedDict[wChar]++;
+                } else {
+                    wSortedDict.Add(wChar, 1);
                 }
             }
 
             Console.WriteLine("-----ソートディクショナリを使った結果\"-----");
 
             //結果を表示する
-            foreach (var item in wSortedDict) {
-                Console.WriteLine($"'{item.Key}' : \t{item.Value}");
+            foreach (var wWord in wSortedDict) {
+                Console.WriteLine($"'{wWord.Key}' : \t{wWord.Value}");
             }
         }
     }

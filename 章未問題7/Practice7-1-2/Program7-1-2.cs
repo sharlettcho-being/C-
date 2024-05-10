@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace Practice7_1_2 {
     internal class Program {
@@ -9,12 +10,12 @@ namespace Practice7_1_2 {
             wAbbrs.Add("NPT", "核兵器不拡散条約");
 
             var wNames = new[] { "WHO", "FIFA", "NPT", };
-            foreach (var name in wNames) {
-                var wfullname = wAbbrs[name];
-                if (wfullname == null) {
-                    Console.WriteLine("{0}は見つかりません。", name);
+            foreach (var wName in wNames) {
+                var wFullname = wAbbrs[wName];
+                if (wFullname == null) {
+                    Console.WriteLine($"{wName} は見つかりません。");
                 } else {
-                    Console.WriteLine("{0}={1}", name, wfullname);
+                    Console.WriteLine("{0}={1}", wName, wFullname);
                 }
             }
             Console.WriteLine();

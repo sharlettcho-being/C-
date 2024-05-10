@@ -8,9 +8,6 @@ namespace Practice7_1_2 {
     /// </summary>
     internal class Abbreviations {
         private Dictionary<string, string> FDict = new Dictionary<string, string>();
-        //初期化
-        bool wResult = false;
-
         /// <summary>
         /// コンストラクタ
         /// テキストファイルからの内容を「=」で分ける。
@@ -55,9 +52,9 @@ namespace Practice7_1_2 {
         /// <param name="substring">文字列</param>
         /// <returns>ディクショナリ</returns>
         public IEnumerable<KeyValuePair<string, string>> FindAll(string substring) {
-            foreach (var item in FDict) {
-                if (item.Value.Contains(substring)) {
-                    yield return item;
+            foreach (var wText in FDict) {
+                if (wText.Value.Contains(substring)) {
+                    yield return wText;
                 }
             }
         }
@@ -73,14 +70,15 @@ namespace Practice7_1_2 {
         /// <summary>
         /// 省略語を引数に受けて該当する項目を削除する処理
         /// </summary>
-        /// <param name="abbr"></param>
+        /// <param name="vAbbr">省略語</param>
         /// <returns>削除出来たら＝＞trueを返す、要素が見つからないなら＝＞falseを返す</returns>
-        public bool Remove(string abbr) {
-            while (FDict.ContainsKey(abbr)) { 
-               FDict.Remove(abbr);
-                wResult = true;
+        public bool Remove(string vAbbr) {
+            bool wCanDelete = false;
+            while (FDict.ContainsKey(vAbbr)) { 
+               FDict.Remove(vAbbr);
+                wCanDelete = true;
             }
-            return wResult;
+            return wCanDelete;
         }
 
         /// <summary>
