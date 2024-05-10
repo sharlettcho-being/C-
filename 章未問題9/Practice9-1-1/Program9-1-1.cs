@@ -1,10 +1,18 @@
 ﻿using System;
+using System.IO;
 
 namespace Practice9_1_1 {
     internal class Program {
         static void Main(string[] args) {
-            //ファイルパスの初期化
-            var wFilePath = @"C:\SharLettCho\C#研修用\Question3－22\Question3－22\Program.cs";
+
+            // 実行されるアプリケーションのカレントディレクトリを取得
+            string wCurrentDirectory = Directory.GetCurrentDirectory();
+
+            // 相対パスを使用してファイルにアクセスする例
+            string wRelativePath = @"..\..\Program9-1-1.cs";
+
+            // 実際のファイルパスを取得
+            string wFilePath = Path.Combine(wCurrentDirectory, wRelativePath);
 
             var wCounterClass = new CountClass();
 

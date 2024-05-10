@@ -9,10 +9,18 @@ namespace Practice9_1_5 {
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args) {
-            string wDirectory = @"C:\Users\sharlettcho\Desktop\Test";
+
+            // 実行されるアプリケーションのカレントディレクトリを取得
+            string wCurrentDirectory = Directory.GetCurrentDirectory();
+
+            // 相対パスを使用してファイルにアクセスする例
+            string wRelativePath = @"..\..\Test";
+
+            // 実際のファイルパスを取得
+            string wFilePath = Path.Combine(wCurrentDirectory, wRelativePath);
 
             //ディレクトリ情報を取得
-            var wDirectioryInfo = new DirectoryInfo(wDirectory);
+            var wDirectioryInfo = new DirectoryInfo(wFilePath);
             //指定したディレクトリの配下にあるファイルを取得
             var wFiles = wDirectioryInfo.EnumerateFiles("*.*", SearchOption.AllDirectories);
            

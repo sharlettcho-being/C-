@@ -6,16 +6,14 @@ namespace Practice9_1_1 {
     /// 指定されたファイルにclassキーワードが含まれている行数をカウントする
     /// </summary>
     internal class CountClass {
-        //初期化
         int wCount = 0;
-
         /// <summary>
         /// StreamReaderを使用し、キーワード"class"が含まれている行数をカウントする
         /// </summary>
         /// <param name="vFilePath">指定したファイルのパス</param>
         /// <returns>行数</returns>
         public int CountLinesContainingClassKeywordUsingStreamReader(string vFilePath) {
-
+            wCount = 0;
             if (File.Exists(vFilePath)) {
                 using (var wReader = new StreamReader(vFilePath, Encoding.UTF8)) {
                     while (!wReader.EndOfStream) {
@@ -33,7 +31,6 @@ namespace Practice9_1_1 {
         /// <param name="vFilePath">指定したファイルのパス</param>
         /// <returns>行数</returns>
         public int CountLinesContainingClassKeywordUsingReadAllLines(string vFilePath) {
-            //初期化
             wCount = 0;
             if (File.Exists(vFilePath)) {
                 //wCount = File.ReadAllLines(vFilePath, Encoding.UTF8).Where(x => x.Contains("class")).Count();
@@ -51,7 +48,6 @@ namespace Practice9_1_1 {
         /// <param name="vFilePath">指定したファイルのパス</param>
         /// <returns>行数</returns>
         public int CountLinesContainingClassKeywordUsingReadLines(string vFilePath) {
-            //初期化
             wCount = 0;
             if (File.Exists(vFilePath)) {
                 var wLines = File.ReadLines(vFilePath);

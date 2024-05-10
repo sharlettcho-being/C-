@@ -4,32 +4,34 @@ using System.Text;
 
 namespace Practice9_1_2 {
     internal class Program {
-        /// <summary>
-        /// テキストファイルを読み込み、行の先頭に行番号を振り、その結果を別のテキストファイルに出力する
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
+
+            // 実行されるアプリケーションのカレントディレクトリを取得
+            string wCurrentDirectory = Directory.GetCurrentDirectory();
             //読み込むファイル
-            var wTextFilePathForRead = @"C:\Users\sharlettcho\Desktop\File.txt";
+            var wRelativePathForRead = @"..\..\File.txt";
             //書き出すファイル
-            var wTextFilePathForWrite = @"C:\Users\sharlettcho\Desktop\出力.txt";
+            var wRelativePathForWrite = @"..\..\出力.txt";
+
+            // 実際のファイルパスを取得
+            string wTextFilePathForRead = Path.Combine(wCurrentDirectory, wRelativePathForRead);
+
+            string wTextFilePathForWrite = Path.Combine(wCurrentDirectory, wRelativePathForWrite);
 
             int wLineNumber = 0;
 
-            if (File.Exists(wTextFilePathForRead)) {
-                
-                using (var wReader = new StreamReader(wTextFilePathForRead, Encoding.UTF8)) 
-                using (var wWriter = new StreamWriter(wTextFilePathForWrite, append: true)) {
-                    while (!wReader.EndOfStream) {
-                        var wLine = wReader.ReadLine();
-                        wLineNumber++;
-                        wWriter.WriteLine($"{wLineNumber}: {wLine}");
-                    }
-                }
-                Console.WriteLine("別のテキストファイルに出力完了！");
-            } else {
+            if (!File.Exists(wTextFilePathForRead)) {
                 Console.WriteLine("指定された入力ファイルが見つかりませんでした。");
+                return;
+            }              
+            using (var wReader = new StreamReader(wTextFilePathForRead, Encoding.UTF8)) 
+            using (var wWriter = new StreamWriter(wTextFilePathForWrite, append: true)) {
+                while (!wReader.EndOfStream) {
+                    wLineNumber++;
+                    wWriter.WriteLine($"{wLineNumber}: {wReader.ReadLine()}");
+                }
             }
+            Console.WriteLine("別のテキストファイルに出力完了！");
         }
     }
 }
