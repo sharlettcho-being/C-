@@ -34,12 +34,10 @@ namespace Practice7_1_1 {
                     wDict.Add(wChar, 1);
                 }
             }
-            // Dictionaryはキーが挿入された順序で保持されるので順に並べ替える処理が必要！
-            var wWords = wDict.OrderBy(wpair => wpair.Key);
 
             Console.WriteLine("-----ディクショナリを使った結果\"-----");
             //結果を表示する
-            foreach (var wWord in wWords) {
+            foreach (var wWord in wDict.OrderBy(wpair => wpair.Key)) {
                 Console.WriteLine($"'{wWord.Key}' : \t{wWord.Value}");
             }
          }

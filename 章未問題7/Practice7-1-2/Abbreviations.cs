@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using System;
 
 namespace Practice7_1_2 {
     /// <summary>
@@ -13,16 +14,21 @@ namespace Practice7_1_2 {
         /// テキストファイルからの内容を「=」で分ける。
         /// </summary>
         public Abbreviations() {
-            var lines = File.ReadAllLines("Abbreviations.txt");
-            FDict = lines.Select(line => line.Split('=')).ToDictionary(x => x[0], x => x[1]);
-        }
+            try {
+                var wLines = File.ReadAllLines("Abbreviations.txt");
+                FDict = wLines.Select(line => line.Split('=')).ToDictionary(x => x[0], x => x[1]);
+            }
+            catch {
+                Console.WriteLine($"指摘したファイルが見つかりません！");
+            }
+        }        
 
-        /// <summary>
-        /// 要素の追加
-        /// </summary>
-        /// <param name="abbr">省略語</param>
-        /// <param name="japanese">日本語</param>
-        public void Add(string vAbbr, string vJapanese) {
+    /// <summary>
+    /// 要素の追加
+    /// </summary>
+    /// <param name="abbr">省略語</param>
+    /// <param name="japanese">日本語</param>
+    public void Add(string vAbbr, string vJapanese) {
             FDict[vAbbr] = vJapanese;
         }
 
@@ -74,7 +80,7 @@ namespace Practice7_1_2 {
         /// <returns>削除出来たら＝＞trueを返す、要素が見つからないなら＝＞falseを返す</returns>
         public bool Remove(string vAbbr) {
             bool wCanDelete = false;
-            while (FDict.ContainsKey(vAbbr)) { 
+            if (FDict.ContainsKey(vAbbr)) { 
                FDict.Remove(vAbbr);
                 wCanDelete = true;
             }
