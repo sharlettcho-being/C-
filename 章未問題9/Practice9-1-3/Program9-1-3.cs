@@ -5,16 +5,17 @@ using System.Text;
 namespace Practice9_1_3 {
     internal class Program {
         static void Main(string[] args) {
-             if (args.Length < 2) {
-                 Console.WriteLine("テキストファイル２つのパスを指定してください。");
-                 return;
-             }
-             // 第1引数と第2引数がそれぞれ2つのテキストファイルのパスです
-             string wTextFilePath = args[0];
-             string wBetuTextFilePath = args[1];
+            
+            // 実行されるアプリケーションのカレントディレクトリを取得
+            string wCurrentDirectory = Directory.GetCurrentDirectory();
 
-             Console.WriteLine($"ファイル１{wTextFilePath}");
-             Console.WriteLine($"ファイル２ {wBetuTextFilePath}");
+            // 相対パスを使用してファイルにアクセスする例
+            string wFirstRelativePath = @"..\..\File2.txt";
+            string wSecondtRelativePath = @"..\..\File.txt";
+
+            // 実際のファイルパスを取得
+            string wTextFilePath = Path.Combine(wCurrentDirectory, wFirstRelativePath);
+            string wBetuTextFilePath = Path.Combine(wCurrentDirectory, wSecondtRelativePath);
 
             if (!File.Exists(wTextFilePath)) {
                 Console.WriteLine("指定された入力ファイルが見つかりませんでした。");
