@@ -37,7 +37,7 @@ namespace Practice7_1_1 {
 
             Console.WriteLine("-----ディクショナリを使った結果\"-----");
             //結果を表示する
-            foreach (var wWord in wDict.OrderBy(wpair => wpair.Key)) {
+            foreach (var wWord in wDict.OrderBy(x => x.Key)) {
                 Console.WriteLine($"'{wWord.Key}' : \t{wWord.Value}");
             }
          }
@@ -48,7 +48,7 @@ namespace Practice7_1_1 {
         /// </summary>
         /// <param name="vText">文字列</param>
         public static void CountAlphabetCharactersUsingSortedDictionary(string vText) {
-            SortedDictionary<char, int> wSortedDict = new SortedDictionary<char, int>();
+            var wSortedDict = new SortedDictionary<char, int>();
 
             foreach (char wChar in vText.ToUpper()) {
                 if (!char.IsLetter(wChar)) continue;

@@ -16,7 +16,7 @@ namespace Practice7_1_2 {
         public Abbreviations() {
             try {
                 var wLines = File.ReadAllLines("Abbreviations.txt");
-                this.FDict = wLines.Select(line => line.Split('=')).ToDictionary(x => x[0], x => x[1]);
+                this.FDict = wLines.Select(x => x.Split('=')).ToDictionary(x => x[0], x => x[1]);
             }
             catch {
                 Console.WriteLine($"指摘したファイルが見つかりません！");
@@ -57,9 +57,9 @@ namespace Practice7_1_2 {
         /// </summary>
         /// <param name="substring">文字列</param>
         /// <returns>ディクショナリ</returns>
-        public IEnumerable<KeyValuePair<string, string>> FindAll(string substring) {
+        public IEnumerable<KeyValuePair<string, string>> FindAll(string wSubstring) {
             foreach (var wText in FDict) {
-                if (wText.Value.Contains(substring)) {
+                if (wText.Value.Contains(wSubstring)) {
                     yield return wText;
                 }
             }
