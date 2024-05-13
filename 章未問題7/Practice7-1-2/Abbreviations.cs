@@ -16,7 +16,7 @@ namespace Practice7_1_2 {
         public Abbreviations() {
             try {
                 var wLines = File.ReadAllLines("Abbreviations.txt");
-                FDict = wLines.Select(line => line.Split('=')).ToDictionary(x => x[0], x => x[1]);
+                this.FDict = wLines.Select(line => line.Split('=')).ToDictionary(x => x[0], x => x[1]);
             }
             catch {
                 Console.WriteLine($"指摘したファイルが見つかりません！");
@@ -29,7 +29,7 @@ namespace Practice7_1_2 {
     /// <param name="abbr">省略語</param>
     /// <param name="japanese">日本語</param>
     public void Add(string vAbbr, string vJapanese) {
-            FDict[vAbbr] = vJapanese;
+            this.FDict[vAbbr] = vJapanese;
         }
 
         /// <summary>

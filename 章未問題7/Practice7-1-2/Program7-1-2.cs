@@ -15,7 +15,7 @@ namespace Practice7_1_2 {
                 if (wFullname == null) {
                     Console.WriteLine($"{wName} は見つかりません。");
                 } else {
-                    Console.WriteLine("{0}={1}", wName, wFullname);
+                    Console.WriteLine($"{wName}={wFullname}");
                 }
             }
             Console.WriteLine();
@@ -25,13 +25,13 @@ namespace Practice7_1_2 {
             if (wAbbreviation == null) {
                 Console.WriteLine("{0}は見つかりません", wJapanese);
             } else {
-                Console.WriteLine("「{0}」の略語は{1}です。", wJapanese, wAbbreviation);
+                Console.WriteLine($"{wJapanese}」の略語は{wAbbreviation}です。");
             }
                
             Console.WriteLine();
 
             foreach (var wItem in wAbbrs.FindAll("国際")) {
-                Console.WriteLine("{0}={1}", wItem.Key, wItem.Value);
+                Console.WriteLine($"{wItem.Key}={wItem.Value}");
             }
             Console.WriteLine();
 
@@ -42,15 +42,15 @@ namespace Practice7_1_2 {
             var wRemoveKey = "WHO";
             var wResult = wAbbrs.Remove(wRemoveKey);
             if(wResult){
-                Console.WriteLine("\n{0}が削除できました！", wRemoveKey);
+                Console.WriteLine($"\n{wRemoveKey}が削除できました！");
             } else {
-                Console.WriteLine("\n{0}が見つかりません。", wRemoveKey);
+                Console.WriteLine($"\n{wRemoveKey}が見つかりません。");
             }
             Console.WriteLine();
             
             var wNewDict = wAbbrs.GetAbbreviationsOnlyThreeCharacter();
             foreach(var wItem in wNewDict) {
-                Console.WriteLine("{0}={1}", wItem.Key, wItem.Value);
+                Console.WriteLine($"{wItem.Key}={wItem.Value}");
             }
         }
     }
