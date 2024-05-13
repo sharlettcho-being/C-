@@ -3,10 +3,6 @@ using System.Text.RegularExpressions;
 
 namespace Practice10_1_1 {
     internal class Program {
-        /// <summary>
-        /// 指定された文字列は携帯電話の電話番号かどうか判断する。
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
             var wPhoneNumber = "080-3561-6596";
 
