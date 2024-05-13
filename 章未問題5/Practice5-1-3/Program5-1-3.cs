@@ -26,7 +26,7 @@ namespace Practice5_1_3 {
         /// <summary>
         ///空白のカウントを計算
         /// </summary>
-        /// <param name="vText"></param>
+        /// <param name="vText">文字列</param>
         public static void FindWhiteSpaceCount(string vText) {
             int wWhiteSpaceCount = 0;
             foreach (char wWord in vText)
@@ -39,7 +39,7 @@ namespace Practice5_1_3 {
         /// <summary>
         /// 文字列を置き換えする
         /// </summary>
-        /// <param name="vText"></param>
+        /// <param name="vText">文字列</param>
         public static void ReplaceText(string vText) {
             var wReplace = vText.Replace("big", "small");
             Console.WriteLine(wReplace.ToString());
@@ -48,7 +48,7 @@ namespace Practice5_1_3 {
         /// <summary>
         /// 単語がいくつあるかカウントする
         /// </summary>
-        /// <param name="vText"></param>
+        /// <param name="vText">文字列</param>
         public static void CalculateTangoCount(string vText) {
             var wTangoCount = vText.Split(' ').Count();
             Console.WriteLine(wTangoCount.ToString());
@@ -57,7 +57,7 @@ namespace Practice5_1_3 {
         /// <summary>
         /// 4文字以下の単語を列挙する
         /// </summary>
-        /// <param name="vText"></param>
+        /// <param name="vText">文字列</param>
         public static void OutputTango(string vText) {
             var wWords = vText.Split(' ');
             foreach (var wWord in wWords) {
@@ -70,7 +70,7 @@ namespace Practice5_1_3 {
         /// <summary>
         /// StringBuilderを使って文字列を連結する
         /// </summary>
-        /// <param name="vText"></param>
+        /// <param name="vText">文字列</param>
         public static void ReplaceOriginalText(string vText) {
             var wWords = vText.Split(' ');
             var wNewText = new StringBuilder();

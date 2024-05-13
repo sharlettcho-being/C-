@@ -24,9 +24,9 @@ namespace Practice5_1_4 {
         /// <summary>
         /// 指定されたテキストから指定された値の後に出現するセミコロンまでの部分文字列を取得します。
         /// </summary>
-        /// <param name="vText"></param>
-        /// <param name="vValue"></param>
-        /// <returns>文字列</returns>
+        /// <param name="vText">文字列</param>
+        /// <param name="vValue">指定された値</param>
+        /// <returns>取得できる文字列を返して、文字列を取得できないなら、nullを返す</returns>
         public static String GetData(string vText, string vValue) {
              // 指定された値の Index にその値の長さを加え、取得したい文字列のスタート位置を計算する
             int wStartIndex = vText.IndexOf(vValue) + vValue.Length;
@@ -43,6 +43,7 @@ namespace Practice5_1_4 {
             if (wStartIndex > 0 && wEndIndex > wStartIndex) {
                 return (vText.Substring(wStartIndex, wEndIndex - wStartIndex));
             } else {
+                //開始インデックスが0より小さく、かつ終了インデックスが開始インデックスよりも小さい場合
                 return null;
             }
            
