@@ -17,8 +17,7 @@ namespace Practice7_1_2 {
             try {
                 var wLines = File.ReadAllLines("Abbreviations.txt");
                 this.FDict = wLines.Select(x => x.Split('=')).ToDictionary(x => x[0], x => x[1]);
-            }
-            catch {
+            }catch {
                 Console.WriteLine($"指摘したファイルが見つかりません！");
             }
         }        
