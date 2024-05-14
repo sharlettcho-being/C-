@@ -32,14 +32,14 @@ namespace Practice14_1_3 {
     public class CalendarOption: ConfigurationElement {
         [ConfigurationProperty("StringFormat")]
         public string StringFormat {
-                get { return (string)this["stringFormat"]; }
-                set { this["StringFormat"] = value; }
+            get { return (string)this["stringFormat"]; }
+            set { this["StringFormat"] = value; }
         }
 
         [ConfigurationProperty("Minimum")]
         public string Minimum {
             get { return (string)this["minimum"]; }
-           set { this["Minimum"] = value; }
+            set { this["Minimum"] = value; }
         }
 
          [ConfigurationProperty("Maximum")]
@@ -52,7 +52,7 @@ namespace Practice14_1_3 {
          public bool MondayIsFirstDay {
             get { return (bool)this["IsFirstDay"]; }
             set { this["MondayIsFirstDay"] = value; }
-        }
+         }
     }
 
     /// <summary>
