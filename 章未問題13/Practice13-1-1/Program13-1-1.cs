@@ -3,12 +3,8 @@ using System;
 using System.Linq;
 
 namespace Practice13_1_1 {
-    /// <summary>
-    /// Entity FrameworkのCode Firstを利用し、著者と書籍の追加、表示などの処理
-    /// </summary>
     internal class Program {
         static void Main(string[] args) {
-
             AddAuthors();
             AddBooks();
             DisplayAllBookInformationWithAuthor();
