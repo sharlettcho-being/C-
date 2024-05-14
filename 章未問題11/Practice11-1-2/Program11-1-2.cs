@@ -1,20 +1,29 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace Practice11_1_2 {
     internal class Program {
-        /// <summary>
-        /// XMLファイルの形式を変換し、別のファイルに保存する
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
-            string wXMLFilePath = "C:\\Users\\sharlettcho\\Desktop\\Sample11-2.xml";
+            // 実行されるアプリケーションのカレントディレクトリを取得
+            string wCurrentDirectory = Directory.GetCurrentDirectory();
+
+            // 相対パスを使用してファイルにアクセスする例
+            string wRelativePath = @"..\..\Sample11-2.xml";
+
+            string wSaveFileRelativePath = @"..\..\Sample11 -2New.xml";
+
+            // 実際のファイルパスを取得
+            string wXMLFilePath = Path.Combine(wCurrentDirectory, wRelativePath);
+
+            string wSaveFilePath = Path.Combine(wCurrentDirectory, wSaveFileRelativePath);
+
             var wXDoc = XDocument.Load(wXMLFilePath);
    
             // 新しいXMLを作成
             XDocument wNewDoc = new XDocument(
                 new XDeclaration("1.0", "utf-8", ""),
-                new XElement("difficultkanji",
+                    new XElement("difficultkanji",
                     // 各word要素を変換
                     wXDoc.Root.Elements("word").Select(x =>
                         new XElement("word",
@@ -24,7 +33,7 @@ namespace Practice11_1_2 {
                     )
                 )
             );
-            wNewDoc.Save("C:\\Users\\sharlettcho\\Desktop\\Sample11 -2New.xml");
+            wNewDoc.Save(wSaveFilePath);
         }
     }
 }
