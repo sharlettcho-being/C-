@@ -6,20 +6,20 @@ namespace Practice9_1_1 {
     /// 指定されたファイルにclassキーワードが含まれている行数をカウントする
     /// </summary>
     internal class CountClass {
-        int wCount = 0;
         /// <summary>
         /// StreamReaderを使用し、キーワード"class"が含まれている行数をカウントする
         /// </summary>
         /// <param name="vFilePath">指定したファイルのパス</param>
         /// <returns>行数</returns>
         public int CountLinesContainingClassKeywordUsingStreamReader(string vFilePath) {
-            wCount = 0;
-            if (File.Exists(vFilePath)) {
-                using (var wReader = new StreamReader(vFilePath, Encoding.UTF8)) {
-                    while (!wReader.EndOfStream) {
-                        var wLines = wReader.ReadLine();
-                        wCount = CountClassKeywords(wLines);
-                    }
+            int wCount = 0;
+            if (!File.Exists(vFilePath)) {
+                return 0;
+            }
+            using (var wReader = new StreamReader(vFilePath, Encoding.UTF8)) {
+                while (!wReader.EndOfStream) {
+                    var wLines = wReader.ReadLine();
+                    wCount += CountClassKeywords(wLines);
                 }
             }
             return wCount;
@@ -31,13 +31,12 @@ namespace Practice9_1_1 {
         /// <param name="vFilePath">指定したファイルのパス</param>
         /// <returns>行数</returns>
         public int CountLinesContainingClassKeywordUsingReadAllLines(string vFilePath) {
-            wCount = 0;
-            if (File.Exists(vFilePath)) {
-                //wCount = File.ReadAllLines(vFilePath, Encoding.UTF8).Where(x => x.Contains("class")).Count();
-                string[] wLines = File.ReadAllLines(vFilePath);
-                foreach (string line in wLines) {
-                    wCount = CountClassKeywords(line);
-                }
+            int wCount = 0;
+            if (!File.Exists(vFilePath)) {
+                return 0;
+            }
+            foreach (string line in File.ReadAllLines(vFilePath)) {
+                wCount += CountClassKeywords(line);
             }
             return wCount;
         }
@@ -48,12 +47,13 @@ namespace Practice9_1_1 {
         /// <param name="vFilePath">指定したファイルのパス</param>
         /// <returns>行数</returns>
         public int CountLinesContainingClassKeywordUsingReadLines(string vFilePath) {
-            wCount = 0;
-            if (File.Exists(vFilePath)) {
-                var wLines = File.ReadLines(vFilePath);
-                foreach (var wLine in wLines) {
-                    wCount = CountClassKeywords(wLine);
-                }
+            int wCount = 0;
+            if (!File.Exists(vFilePath)) {
+                return 0;
+            }
+            var wLines = File.ReadLines(vFilePath);
+            foreach (var wLine in wLines) {
+                wCount += CountClassKeywords(wLine);
             }
             return wCount;
         }
@@ -64,6 +64,7 @@ namespace Practice9_1_1 {
         /// <param name="vLines">各行</param>
         /// <returns>カウント</returns>
         public int CountClassKeywords(string vLines) {
+            int wCount = 0;
             string[] wWords = vLines.Split(' ');
             for (int i = 1; i < wWords.Length; i++) {
                 if (wWords[i] == "class") {

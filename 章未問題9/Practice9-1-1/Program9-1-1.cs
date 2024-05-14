@@ -16,14 +16,11 @@ namespace Practice9_1_1 {
 
             var wCounterClass = new CountClass();
 
-            var wCountUsingStreamReader = wCounterClass.CountLinesContainingClassKeywordUsingStreamReader(wFilePath);
-            Console.WriteLine(wCountUsingStreamReader);
+            Console.WriteLine(wCounterClass.CountLinesContainingClassKeywordUsingStreamReader(wFilePath));
 
-            var wCountUsingReadAllLines = wCounterClass.CountLinesContainingClassKeywordUsingReadAllLines(wFilePath);
-            Console.WriteLine(wCountUsingReadAllLines);
+            Console.WriteLine(wCounterClass.CountLinesContainingClassKeywordUsingReadAllLines(wFilePath));
 
-            var wCountUsingReadLines = wCounterClass.CountLinesContainingClassKeywordUsingReadAllLines(wFilePath);
-            Console.WriteLine(wCountUsingReadLines);
+            Console.WriteLine(wCounterClass.CountLinesContainingClassKeywordUsingReadAllLines(wFilePath));
         }
     }
 }
