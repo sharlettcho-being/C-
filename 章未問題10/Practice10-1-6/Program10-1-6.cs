@@ -3,11 +3,6 @@ using System.Text.RegularExpressions;
 
 namespace Practice10_1_6 {
     internal class Program {
-        /// <summary>
-        /// 5文字の回文とマッチする正規表現
-        /// 数字や記号だけから成る回文は除外する
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
             //初期化
             string wInputData = "ababa 12321 12345 abcdc abab 98789 12ab3 12321 2bab2 @aba@ @###@";

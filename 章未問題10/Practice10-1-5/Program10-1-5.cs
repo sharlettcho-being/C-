@@ -16,7 +16,7 @@ namespace Practice10_1_5 {
 
             if (!File.Exists(wFilePath)) return;
             if (!File.Exists(wFilePath)) return;
-            string[] wLines = File.ReadAllLines(wFilePath);
+            var wLines = File.ReadAllLines(wFilePath);
             using (StreamWriter wWriter = new StreamWriter(wFilePath)) {
                 foreach (string wLine in wLines) {
                     string wString = Regex.Replace(wLine, wPattern, m => m.Value.ToLower());

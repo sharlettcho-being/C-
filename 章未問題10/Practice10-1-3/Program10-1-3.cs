@@ -4,7 +4,6 @@ using System.Text.RegularExpressions;
 namespace Practice10_1_3 {
     internal class Program {
         static void Main(string[] args) {
-            //初期化
             var wTexts = new[] {
                 "Time is money",
                 "What time is it?",

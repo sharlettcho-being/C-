@@ -15,8 +15,8 @@ namespace Practice10_1_4 {
             var wPattern = @"[Vv]ersion=""v4.0""";
 
             if (!File.Exists(wFilePath)) return;
-                if (!File.Exists(wFilePath)) return;
-            string[] wLines = File.ReadAllLines(wFilePath);
+            if (!File.Exists(wFilePath)) return;
+            var wLines = File.ReadAllLines(wFilePath);
             using (StreamWriter wWriter = new StreamWriter(wFilePath)) {
                 foreach (string wLine in wLines) {
                     string wString = Regex.Replace(wLine, @"\s*=\s*", "=");
