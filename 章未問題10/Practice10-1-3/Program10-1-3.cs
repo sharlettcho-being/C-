@@ -16,7 +16,7 @@ namespace Practice10_1_3 {
                 if (wString.Success) {
                     Console.WriteLine($"{wString.Index}{wString.Value}");
                 }
-            }          
+            }
         }
     }
 }

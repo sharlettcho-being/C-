@@ -15,7 +15,7 @@ namespace Practice10_1_6 {
             wInputData = Regex.Replace(wInputData, wExceludePattern, " ");
 
             // 5文字の回文を抽出
-            MatchCollection wMatches = Regex.Matches(wInputData, wSearchFiveCharacterPalindrome);        
+            MatchCollection wMatches = Regex.Matches(wInputData, wSearchFiveCharacterPalindrome);
             foreach (Match wMatch in wMatches) {
                   Console.WriteLine(wMatch.Value);
             }
