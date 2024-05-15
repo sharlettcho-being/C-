@@ -26,13 +26,8 @@ namespace Practice12_1_2 {
         [DataMember(Name = "masterpiece")]
         [XmlArrayItem("title", typeof(string))]
         public string[] Masterpieces { get; set; }
-
     }
     internal class Program {
-        /// <summary>
-        /// 定義されたnovelistクラスを使ってシリアル化、逆シリアル化にする。
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
             //クラスの定義
             var wNovelist = new NoveList {
@@ -49,7 +44,6 @@ namespace Practice12_1_2 {
                 Indent = true,
                 IndentChars = " ",
                 Encoding = Encoding.UTF8,
-
             };
 
             // 名前空間の出力を制御するためのXmlSerializerNamespacesオブジェクトを作成
@@ -70,22 +64,20 @@ namespace Practice12_1_2 {
                 Console.WriteLine(wNoveList.Birth);
                 foreach (var wNovel in wNoveList.Masterpieces) {
                     Console.WriteLine(wNovel);
-
                 }
             }
 
             //日付の表示についての設定
             var wJsonSettings = new DataContractJsonSerializerSettings {
                 DateTimeFormat = new System.Runtime.Serialization.DateTimeFormat("yyyy-MM-dd'T'HH:mm:ss"),
-            };           
+            };
 
             //JSONファイルに逆シリアル化にする
             using (var wStream = new FileStream("novel.json", FileMode.Create, FileAccess.Write))
-            using (var wJsonWriter = JsonReaderWriterFactory.CreateJsonWriter(wStream, Encoding.UTF8, true, true, " ")) { 
+            using (var wJsonWriter = JsonReaderWriterFactory.CreateJsonWriter(wStream, Encoding.UTF8, true, true, " ")) {
                 var wJsonSerializer = new DataContractJsonSerializer(typeof(NoveList), wJsonSettings);
                 wJsonSerializer.WriteObject(wJsonWriter, wNovelist);
             }
-
         }
     }
 }

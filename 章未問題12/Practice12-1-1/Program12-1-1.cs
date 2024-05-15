@@ -23,13 +23,9 @@ namespace Practice12_1_1 {
         public string Name { get; set; }
         [XmlElement(ElementName = "hiredate")]
         [DataMember(Name = "hiredate")]
-        public DateTime HireDate { get; set; }           
+        public DateTime HireDate { get; set; }
     }
     internal class Program {
-        /// <summary>
-        /// 定義されたEmployeeクラスを使ってシリアル化、逆シリアル化にする。
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
             var wEmployees = new Employee[] {
                 new Employee{
@@ -47,7 +43,6 @@ namespace Practice12_1_1 {
                     Name = "桜太郎",
                     HireDate = new DateTime (2024,04,25),
                 }
-
             };
             //オブジェクトをシリアル化にする。
             SerializeObject();
@@ -103,8 +98,6 @@ namespace Practice12_1_1 {
         /// </summary>
         /// <param name="vEmployees">配列</param>
         public static void SerializeObjectArray(Employee[] vEmployees) {
-
-
             var wSettings = new XmlWriterSettings {
                 Encoding = new UTF8Encoding(false),
                 Indent = true,
@@ -128,7 +121,6 @@ namespace Practice12_1_1 {
                     Console.WriteLine("Name: " + wEmployee.Name);
                     Console.WriteLine("HireDate: " + wEmployee.HireDate);
                 }
-
             }
         }
 
