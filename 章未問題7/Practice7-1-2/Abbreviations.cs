@@ -20,7 +20,7 @@ namespace Practice7_1_2 {
             } catch {
                 Console.WriteLine($"指摘したファイルが見つかりません！");
             }
-        }        
+        }
 
     /// <summary>
     /// 要素の追加
@@ -79,7 +79,7 @@ namespace Practice7_1_2 {
         /// <returns>削除出来たら＝＞trueを返す、要素が見つからないなら＝＞falseを返す</returns>
         public bool Remove(string vAbbr) {
             bool wCanDelete = false;
-            if (FDict.ContainsKey(vAbbr)) { 
+            if (FDict.ContainsKey(vAbbr)) {
                FDict.Remove(vAbbr);
                 wCanDelete = true;
             }

@@ -27,7 +27,7 @@ namespace Practice7_1_2 {
             } else {
                 Console.WriteLine($"{wJapanese}」の略語は{wAbbreviation}です。");
             }
-               
+
             Console.WriteLine();
 
             foreach (var wItem in wAbbrs.FindAll("国際")) {
@@ -47,7 +47,7 @@ namespace Practice7_1_2 {
                 Console.WriteLine($"\n{wRemoveKey}が見つかりません。");
             }
             Console.WriteLine();
-            
+
             var wNewDict = wAbbrs.GetAbbreviationsOnlyThreeCharacter();
             foreach(var wItem in wNewDict) {
                 Console.WriteLine($"{wItem.Key}={wItem.Value}");
