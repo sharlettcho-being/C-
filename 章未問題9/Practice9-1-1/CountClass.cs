@@ -35,8 +35,8 @@ namespace Practice9_1_1 {
             if (!File.Exists(vFilePath)) {
                 return 0;
             }
-            foreach (string line in File.ReadAllLines(vFilePath)) {
-                wCount += CountClassKeywords(line);
+            foreach (string wLine in File.ReadAllLines(vFilePath)) {
+                wCount += CountClassKeywords(wLine);
             }
             return wCount;
         }
@@ -66,13 +66,12 @@ namespace Practice9_1_1 {
         public int CountClassKeywords(string vLines) {
             int wCount = 0;
             string[] wWords = vLines.Split(' ');
-            for (int i = 1; i < wWords.Length; i++) {
-                if (wWords[i] == "class") {
-                    wCount++;
-                    break;
-                }
-            }
-            return wCount;
+              for (int i = 0; i < wWords.Length; i++) {
+                  if (wWords[i] == "class") {
+                      wCount++;
+                  }
+              }
+              return wCount;
         }
     }
 }
