@@ -8,14 +8,8 @@ namespace Practice16_1_1 {
             InitializeComponent();
         }
         private async void button1_Click(object sender, EventArgs e) {
-            // 実行されるアプリケーションのカレントディレクトリを取得
-            string wCurrentDirectory = Directory.GetCurrentDirectory();
-
             // 相対パスを使用してファイルにアクセスする例
-            string wRelativePath = @"..\..\Abbreviations.txt";
-
-            // 実際のファイルパスを取得
-            string wFilePath = Path.Combine(wCurrentDirectory, wRelativePath);
+            string wFilePath = @"..\..\Abbreviations.txt";
 
             //指定されたファイルパスにファイルが存在しない場合、処理を中断する
             if (!File.Exists(wFilePath)) return;

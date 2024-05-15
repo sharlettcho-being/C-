@@ -6,14 +6,8 @@ using System.Linq;
 namespace Practice16_1_2 {
     internal class Program {
         static void Main(string[] args) {
-            // 実行されるアプリケーションのカレントディレクトリを取得
-            string wCurrentDirectory = Directory.GetCurrentDirectory();
-
             // 相対パスを使用してファイルにアクセスする例
-            string wRelativePath = @"..\..\C#のソースファイル";
-
-            // 実際のファイルパスを取得
-            string wFilePath = Path.Combine(wCurrentDirectory, wRelativePath);
+            string wFilePath = @"..\..\C#のソースファイル";
 
             //指定したディレクトリの配下にある「.cs」ファイルを取得
             var wCSFiles = Directory.GetFiles(wFilePath, "*.cs", SearchOption.AllDirectories);
