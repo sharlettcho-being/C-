@@ -12,7 +12,7 @@ namespace Practice11_1_2 {
             var wXDoc = XDocument.Load(wXMLFilePath);
    
             // 新しいXMLを作成
-            XDocument wNewDoc = new XDocument(
+            var wNewDoc = new XDocument(
                 new XDeclaration("1.0", "utf-8", ""),
                 new XElement("difficultkanji",
                 // 各word要素を変換

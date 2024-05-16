@@ -66,15 +66,15 @@ namespace Practice11_1_1 {
         /// <param name="vSoccerFirstPlayed">プレーされた年</param>
         public static void AddSoccerInfoAndSaveToFile(XDocument vXdoc, string vFilePath, string vSoccerName, int vSoccerTeamMembers, int vSoccerFirstPlayed) {
             var soccerElement = new XElement("ballsport",
-            new XElement("name", new XAttribute("kanji", "蹴球"), vSoccerName),
-            new XElement("teammembers", vSoccerTeamMembers),
-            new XElement("firstplayed", vSoccerFirstPlayed));
+                new XElement("name", new XAttribute("kanji", "蹴球"), vSoccerName),
+                new XElement("teammembers", vSoccerTeamMembers),
+                new XElement("firstplayed", vSoccerFirstPlayed));
             vXdoc.Root.Add(soccerElement);
 
             // 新しいXMLファイルに保存
             vXdoc.Save(vFilePath);
 
-            Console.WriteLine("サッカーの情報を追加した新しいXMLファイルが作成されました！ "); 
+            Console.WriteLine("サッカーの情報を追加した新しいXMLファイルが作成されました！");
         }
     }
 }
