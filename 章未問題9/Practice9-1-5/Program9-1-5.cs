@@ -3,11 +3,6 @@ using System.IO;
 
 namespace Practice9_1_5 {
     internal class Program {
-        /// <summary>
-        /// 指定したディレクトリおよびそのサブディレクトリの配下にあるファイルのサイズが１Ｍバイト以上
-        ///のファイル名の一覧を表示する
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args) {
             // 相対パスを使用してファイルにアクセスする例
             string wFilePath = @"..\..\Test";

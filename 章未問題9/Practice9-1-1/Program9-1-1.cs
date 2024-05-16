@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Practice9_1_1 {
     internal class Program {
