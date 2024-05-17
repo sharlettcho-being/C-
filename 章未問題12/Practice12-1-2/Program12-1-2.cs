@@ -9,19 +9,28 @@ using System.Xml.Serialization;
 namespace Practice12_1_2 {
 
     /// <summary>
-    /// 名前、誕生日、傑作を持っているnovelistというクラス
+    /// 小説家の情報を表すクラス
     /// </summary>
     [XmlRoot("novelist")]
     [DataContract(Name = "novel")]
     public class NoveList {
+        /// <summary>
+        /// 小説家の名前を取得または設定
+        /// </summary>
         [XmlElement(ElementName = "name")]
         [DataMember(Name = "name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// 小説家の生年月日を取得または設定
+        /// </summary>
         [XmlElement(ElementName = "birth")]
         [DataMember(Name = "birth")]
         public DateTime Birth { get; set; }
 
+        /// <summary>
+        /// 小説家の代表作のリストを取得または設定
+        /// </summary>
         [XmlArray("masterpeices")]
         [DataMember(Name = "masterpiece")]
         [XmlArrayItem("title", typeof(string))]
@@ -29,7 +38,6 @@ namespace Practice12_1_2 {
     }
     internal class Program {
         static void Main(string[] args) {
-            //クラスの定義
             var wNovelist = new NoveList {
                 Name = "アーサー・C・クラーク",
                 Birth = new DateTime(1917, 12, 16),
@@ -60,8 +68,7 @@ namespace Practice12_1_2 {
             using (var wReader = XmlReader.Create("novelist.xml")) {
                 var wDeserializer = new XmlSerializer(typeof(NoveList));
                 var wNoveList = wDeserializer.Deserialize(wReader) as NoveList;
-                Console.WriteLine(wNoveList.Name);
-                Console.WriteLine(wNoveList.Birth);
+                Console.WriteLine($"{wNoveList.Name}\n{wNoveList.Birth}");
                 foreach (var wNovel in wNoveList.Masterpieces) {
                     Console.WriteLine(wNovel);
                 }
@@ -69,7 +76,7 @@ namespace Practice12_1_2 {
 
             //日付の表示についての設定
             var wJsonSettings = new DataContractJsonSerializerSettings {
-                DateTimeFormat = new System.Runtime.Serialization.DateTimeFormat("yyyy-MM-dd'T'HH:mm:ss"),
+                DateTimeFormat = new DateTimeFormat("yyyy-MM-dd'T'HH:mm:ss"),
             };
 
             //JSONファイルに逆シリアル化にする
