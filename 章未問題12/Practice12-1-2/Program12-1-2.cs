@@ -7,26 +7,52 @@ using System.Xml;
 using System.Xml.Serialization;
 
 namespace Practice12_1_2 {
-
     /// <summary>
     /// 小説家の情報を表すクラス
     /// </summary>
     [XmlRoot("novelist")]
     [DataContract(Name = "novel")]
     public class NoveList {
+        private string _name;
+        private DateTime _birth;
+        private string[] _masterpieces;
+
+        /// <summary>
+        /// パラメータなしのコンストラクタ
+        /// </summary>
+        public NoveList() { }
+
+        /// <summary>
+        /// パラメータありのコンストラクタ
+        /// </summary>
+        /// <param name="name">小説家の名前</param>
+        /// <param name="birth">小説家の生年月日</param>
+        /// <param name="masterpieces">小説家の代表作のリスト</param>
+        public NoveList(string name, DateTime birth, string[] masterpieces) {
+            _name = name;
+            _birth = birth;
+            _masterpieces = masterpieces;
+        }
+
         /// <summary>
         /// 小説家の名前を取得または設定
         /// </summary>
         [XmlElement(ElementName = "name")]
         [DataMember(Name = "name")]
-        public string Name { get; set; }
+        public string Name {
+            get { return _name; }
+            set { _name = value; }
+        }
 
         /// <summary>
         /// 小説家の生年月日を取得または設定
         /// </summary>
         [XmlElement(ElementName = "birth")]
         [DataMember(Name = "birth")]
-        public DateTime Birth { get; set; }
+        public DateTime Birth {
+            get { return _birth; }
+            set { _birth = value; }
+        }
 
         /// <summary>
         /// 小説家の代表作のリストを取得または設定
@@ -34,8 +60,12 @@ namespace Practice12_1_2 {
         [XmlArray("masterpeices")]
         [DataMember(Name = "masterpiece")]
         [XmlArrayItem("title", typeof(string))]
-        public string[] Masterpieces { get; set; }
+        public string[] Masterpieces {
+            get { return _masterpieces; }
+            set { _masterpieces = value; }
+        }
     }
+
     internal class Program {
         static void Main(string[] args) {
             var wNovelist = new NoveList {
