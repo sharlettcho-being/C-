@@ -13,8 +13,7 @@ namespace Practice14_1_2 {
 
             var wAssembly = Assembly.GetExecutingAssembly();
             var wAsmVersion = wAssembly.GetName().Version;
-            Console.WriteLine("アセンブリバージョンは　　{0}.{1}.{2}.{3}", wAsmVersion.Major,
-                                wAsmVersion.Minor, wAsmVersion.Build, wAsmVersion.Revision);
+            Console.WriteLine($"アセンブリバージョンは　　{wAsmVersion.Major}.{wAsmVersion.Minor}.{wAsmVersion.Build}.{wAsmVersion.Revision}");
         }
     }
 }

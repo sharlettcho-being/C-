@@ -16,8 +16,10 @@ namespace Practice14_1_1 {
                 // 相対パスを絶対パスに変換
                 string wAbsolutePath = Path.GetFullPath(wTrimmedPath);
 
-                using (Process process = Process.Start(wAbsolutePath)) {
-                    process.WaitForExit();
+                if (!File.Exists(wAbsolutePath)) return;
+
+                using (Process wProcess = Process.Start(wAbsolutePath)) {
+                    wProcess.WaitForExit();
                 }
             }
         }
