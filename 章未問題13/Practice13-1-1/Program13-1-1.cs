@@ -5,8 +5,16 @@ using System.Linq;
 namespace Practice13_1_1 {
     internal class Program {
         static void Main(string[] args) {
-            AddAuthors();
-            AddBooks();
+            var wFirstAuthour = new Author(1, "菊池寛", new DateTime(1888, 12, 26), "男性");
+            var wSecondAuthour = new Author(1, "川端康成", new DateTime(1899, 6, 14), "男性");
+
+            var wBook = new Book(1, "こころ", 2003, new Author(1, "夏目漱石", new DateTime(1867, 2, 9), "男性"));
+            var wBook2 = new Book(2, "伊豆の踊子", 2003, new Author(2, "川端康成", new DateTime(1899, 6, 14), "男性")); 
+            var wBook3 = new Book(3, "真珠未人", 2002, new Author(3, "真珠未人", new DateTime(1888, 12, 26), "男性"));
+            var wBook4 = new Book(4, "注文の多い料理店", 2000, new Author(4, "宮沢賢治", new DateTime(1896, 8, 27), "男性"));
+
+            AddAuthors(wFirstAuthour, wSecondAuthour);
+            AddBooks(wBook, wBook2, wBook3, wBook4);
             DisplayAllBookInformationWithAuthor();
             GetBookWithLongestTitle();
             DisplayOldestThreeBooks();
@@ -16,20 +24,10 @@ namespace Practice13_1_1 {
         /// <summary>
         /// 著者追加する
         /// </summary>
-        public static void AddAuthors() {
+        public static void AddAuthors(Author vFirstAuthour, Author vSecondAuthour) {
             using (var wDbForAuthor = new BookDbContext()) {
-                var wFirstAuthour = new Author {
-                    Birthday = new DateTime(1888, 12, 26),
-                    Gender = "男性",
-                    Name = "菊池寛",
-                };
-                wDbForAuthor.Authors.Add(wFirstAuthour);
-                var wSecondAuthour = new Author {
-                    Birthday = new DateTime(1899, 6, 14),
-                    Gender = "男性",
-                    Name = "川端康成",
-                };
-                wDbForAuthor.Authors.Add(wSecondAuthour);
+                wDbForAuthor.Authors.Add(vFirstAuthour);
+                wDbForAuthor.Authors.Add(vSecondAuthour);
                 wDbForAuthor.SaveChanges();
             }
         }
@@ -37,53 +35,14 @@ namespace Practice13_1_1 {
         /// <summary>
         ///書籍を追加する。
         /// </summary>
-        public static void AddBooks() {
+        public static void AddBooks(Book vBook, Book vBook2, Book vBook3, Book vBook4) {
             using (var wDbforBook = new BookDbContext()) {
-                var wBook = new Book {
-                    Title = "こころ",
-                    PublishedYear = 1991,
-                    Author = new Author {
-                        Name = "夏目漱石",
-                        Birthday = new DateTime(1867, 2, 9),
-                        Gender = "男性",
-                    }
-                };
-                wDbforBook.Books.Add(wBook);
-                var wBook2 = new Book {
-                    Title = "伊豆の踊子",
-                    PublishedYear = 2003,
-                    Author = new Author {
-                        Name = "川端康成",
-                        Birthday = new DateTime(1899, 6, 14),
-                        Gender = "男性",
-                    }
-                };
-                wDbforBook.Books.Add(wBook2);
-                var wBook3 = new Book {
-                    Title = "真珠未人",
-                    PublishedYear = 2002,
-                    Author = new Author {
-                        Name = "菊池寛",
-                        Birthday = new DateTime(1888, 12, 26),
-                        Gender = "男性",
-                    }
-                };
-                wDbforBook.Books.Add(wBook3);
-
-                var wBook4 = new Book {
-                    Title = "注文の多い料理店",
-                    PublishedYear = 2000,
-                    Author = new Author {
-                        Name = "宮沢賢治",
-                        Birthday = new DateTime(1896, 8, 27),
-                        Gender = "男性",
-                    }
-                };
-                wDbforBook.Books.Add(wBook4);
-
+                wDbforBook.Books.Add(vBook);
+                wDbforBook.Books.Add(vBook2);
+                wDbforBook.Books.Add(vBook3);
+                wDbforBook.Books.Add(vBook4);
                 wDbforBook.SaveChanges();
             }
-
         }
 
         /// <summary>
@@ -120,7 +79,6 @@ namespace Practice13_1_1 {
         /// </summary>
         public static void DisplayOldestThreeBooks() {
             using (var wDb = new BookDbContext()) {
-
                 var wOldestBook = wDb.Books.OrderBy(x => x.PublishedYear).Take(3).ToList();
                 foreach (var wBook in wOldestBook) {
                     Console.WriteLine($"{wBook.Title}\t{wBook.Author.Name}");
