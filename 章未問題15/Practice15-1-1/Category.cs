@@ -3,24 +3,15 @@
     /// 書籍のカテゴリIdとカテゴリ名を持っているクラス
     /// </summary>
     internal class Category {
-        private int FId;
-        private string FName;
-
         /// <summary>
         /// 書籍のカテゴリID
         /// </summary>
-        public int Id {
-            get { return this.FId; }
-            set { this.FId = value; }
-        }
+        public int Id { get; set; }
 
         /// <summary>
         /// 書籍のカテゴリ名
         /// </summary>
-        public string Name {
-            get { return this.FName; }
-            set { this.FName = value; }
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// オーバーライドされたToStringメソッド

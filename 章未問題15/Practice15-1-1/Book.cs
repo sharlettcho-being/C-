@@ -3,42 +3,25 @@
     /// 書籍のタイトル、価格、カテゴリID、発行年を持っているクラス
     /// </summary>
     internal class Book {
-        private string FTitle;
-        private int FPrice;
-        private int FCategoryId;
-        private int FPublishedYear;
-
         /// <summary>
         /// 書籍のタイトル
         /// </summary>
-        public string Title {
-            get { return this.FTitle; }
-            set { this.FTitle = value; }
-        }
+        public string Title { get; set; }
 
         /// <summary>
         /// 書籍の価格
         /// </summary>
-        public int Price {
-            get { return this.FPrice; }
-            set { this.FPrice = value; }
-        }
+        public int Price { get; set; }
 
         /// <summary>
         /// 書籍のカテゴリID
         /// </summary>
-        public int CategoryId {
-            get { return this.FCategoryId; }
-            set { this.FCategoryId = value; }
-        }
+        public int CategoryId { get; set; }
 
         /// <summary>
         /// 書籍の発行年
         /// </summary>
-        public int PublishedYear {
-            get { return this.FPublishedYear; }
-            set { this.FPublishedYear = value; }
-        }
+        public int PublishedYear { get; set; }
 
         /// <summary>
         /// オーバーライドされたToStringメソッド
