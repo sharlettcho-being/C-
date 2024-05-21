@@ -13,56 +13,43 @@ namespace Practice12_1_1 {
     [XmlRoot("employee")]
     [DataContract(Name = "employee")]
     public class Employee {
-        private int _id;
-        private string _name;
-        private DateTime _hireDate;
-
-        /// <summary>
-        /// パラメータなしのコンストラクタ
-        /// </summary>
-        public Employee() { }
-
-        /// <summary>
-        /// パラメータありのコンストラクタ
-        /// </summary>
-        /// <param name="vId">従業員の一意の識別子</param>
-        /// <param name="vName">従業員の名前</param>
-        /// <param name="vHireDate">従業員の採用日</param>
-        public Employee(int vId, string vName, DateTime vHireDate) {
-            _id = vId;
-            _name = vName;
-            _hireDate = vHireDate;
-        }
-
         /// <summary>
         /// 従業員の一意の識別子
         /// </summary>
         [XmlElement(ElementName = "id")]
         [IgnoreDataMember]
         [DataMember(Name = "id")]
-        public int Id {
-            get { return _id; }
-            set { _id = value; }
-        }
+        public int Id { get; set; }
 
         /// <summary>
         /// 従業員の名前
         /// </summary>
         [XmlElement(ElementName = "name")]
         [DataMember(Name = "name")]
-        public string Name {
-            get { return _name; }
-            set { _name = value; }
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// 従業員の採用日
         /// </summary>
         [XmlElement(ElementName = "hiredate")]
         [DataMember(Name = "hiredate")]
-        public DateTime HireDate {
-            get { return _hireDate; }
-            set { _hireDate = value; }
+        public DateTime HireDate { get; set; }
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        public Employee() { }
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="vId">従業員の一意の識別子</param>
+        /// <param name="vName">従業員の名前</param>
+        /// <param name="vHireDate">従業員の採用日</param>
+        public Employee(int vId, string vName, DateTime vHireDate) {
+            this.Id = vId;
+            this.Name = vName;
+            this.HireDate = vHireDate;
         }
     }
 
@@ -87,14 +74,17 @@ namespace Practice12_1_1 {
                 DateTimeFormat = new DateTimeFormat("yyyy-MM-dd'T'HH:mm:ss")
             };
 
+            var wFileName = "Employee.xml";
+
             //オブジェクトをシリアル化にする。
-            SerializeObject(wEmployees[0], wSettings);
-            //オブジェクトを逆シリアル化にする。
-            DeserializeObject();
+            SerializeObject(wEmployees[0], wSettings, wFileName);
+
             //複数のオブジェクトが格納されている配列をシリアル化にする。
-            SerializeObjectArray(wEmployees, wSettings);
+            SerializeObjectArray(wEmployees, wSettings, wFileName);
+
             //複数のオブジェクトが格納されている配列を逆シリアル化にする。
-            DeserializeObjectArray();
+            DeserializeObjectArray(wFileName);
+
             //複数のオブジェクトが格納されている配列をJSONファイルに出力する
             SerializeObjectArrayToJsonFile(wEmployees, wJsonSettings);
         }
@@ -102,21 +92,10 @@ namespace Practice12_1_1 {
         /// <summary>
         /// オブジェクトをシリアル化にする。
         /// </summary>
-        public static void SerializeObject(Employee vEmployees, XmlWriterSettings vSettings) {
-            using (var writer = XmlWriter.Create("Employee.xml", vSettings)) {
+        public static void SerializeObject(Employee vEmployees, XmlWriterSettings vSettings, string vFileName) {
+            using (var writer = XmlWriter.Create(vFileName, vSettings)) {
                 var wSerializer = new XmlSerializer(typeof(Employee));
                 wSerializer.Serialize(writer, vEmployees);
-            }
-        }
-
-        /// <summary>
-        /// オブジェクトを逆シリアル化にする。
-        /// </summary>
-        public static void DeserializeObject() {
-            using (var wReader = XmlReader.Create("Employee.xml")) {
-                var wDeserializer = new XmlSerializer(typeof(Employee));
-                var wEmployee = wDeserializer.Deserialize(wReader) as Employee;
-                Console.WriteLine($"Id: {wEmployee.Id}\nName: {wEmployee.Name}\nHireDate: {wEmployee.HireDate}");
             }
         }
 
@@ -124,8 +103,8 @@ namespace Practice12_1_1 {
         /// 複数のオブジェクトが格納されている配列をシリアル化にする。
         /// </summary>
         /// <param name="vEmployees">配列</param>
-        public static void SerializeObjectArray(Employee[] vEmployees, XmlWriterSettings vSettings) {
-            using (var wWriter = XmlWriter.Create("EmployeeUseDataContractSerializer.xml", vSettings)) {
+        public static void SerializeObjectArray(Employee[] vEmployees, XmlWriterSettings vSettings, string vFileName) {
+            using (var wWriter = XmlWriter.Create(vFileName, vSettings)) {
                 var wSerializer = new DataContractSerializer(vEmployees.GetType());
                 wSerializer.WriteObject(wWriter, vEmployees);
             }
@@ -134,8 +113,8 @@ namespace Practice12_1_1 {
         /// <summary>
         /// 複数のオブジェクトが格納されている配列を逆シリアル化
         /// </summary>
-        public static void DeserializeObjectArray() {
-            using (var wReader = XmlReader.Create("EmployeeUseDataContractSerializer.xml")) {
+        public static void DeserializeObjectArray(string vFileName) {
+            using (var wReader = XmlReader.Create(vFileName)) {
                 var wDeserializer = new DataContractSerializer(typeof(Employee[]));
                 var wEmployees = wDeserializer.ReadObject(wReader) as Employee[];
                 foreach (var wEmployee in wEmployees) {
