@@ -5,8 +5,14 @@ namespace Practice15_1_1 {
     /// 書籍のカテゴリプロパティと書籍情報のプロパティを持っているクラス
     /// </summary>
     internal class Library {
+        /// <summary>
+        /// カテゴリのコレクションを保持する静的プロパティ
+        /// </summary>
         public static IEnumerable<Category> Categories { get; private set; }
 
+        /// <summary>
+        /// 書籍のコレクションを保持する静的プロパティ
+        /// </summary>
         public static IEnumerable<Book> Books { get; private set; }
 
         static Library() {
