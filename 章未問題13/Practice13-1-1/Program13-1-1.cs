@@ -1,20 +1,27 @@
 ﻿using Practice13_1_1.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Practice13_1_1 {
     internal class Program {
         static void Main(string[] args) {
-            var wFirstAuthour = new Author(1, "菊池寛", new DateTime(1888, 12, 26), "男性");
-            var wSecondAuthour = new Author(1, "川端康成", new DateTime(1899, 6, 14), "男性");
+            //著者リスト
+            var wAuthors = new List<Author> {
+                new Author(1, "菊池寛", new DateTime(1888, 12, 26), "男性"),
+                new Author(2, "川端康成", new DateTime(1899, 6, 14), "男性")
+            };
 
-            var wBook = new Book(1, "こころ", 2003, new Author(1, "夏目漱石", new DateTime(1867, 2, 9), "男性"));
-            var wBook2 = new Book(2, "伊豆の踊子", 2003, new Author(2, "川端康成", new DateTime(1899, 6, 14), "男性")); 
-            var wBook3 = new Book(3, "真珠未人", 2002, new Author(3, "真珠未人", new DateTime(1888, 12, 26), "男性"));
-            var wBook4 = new Book(4, "注文の多い料理店", 2000, new Author(4, "宮沢賢治", new DateTime(1896, 8, 27), "男性"));
+            //書籍リスト
+            var wBooks = new List<Book> {
+                new Book(1, "こころ", 2003, new Author(1, "夏目漱石", new DateTime(1867, 2, 9), "男性")),
+                new Book(2, "伊豆の踊子", 2003, new Author(2, "川端康成", new DateTime(1899, 6, 14), "男性")),
+                new Book(3, "真珠未人", 2002, new Author(3, "真珠未人", new DateTime(1888, 12, 26), "男性")),
+                new Book(4, "注文の多い料理店", 2000, new Author(4, "宮沢賢治", new DateTime(1896, 8, 27), "男性"))
+            };
 
-            AddAuthors(wFirstAuthour, wSecondAuthour);
-            AddBooks(wBook, wBook2, wBook3, wBook4);
+            AddAuthors(wAuthors);
+            AddBooks(wBooks);
             DisplayAllBookInformationWithAuthor();
             GetBookWithLongestTitle();
             DisplayOldestThreeBooks();
@@ -24,10 +31,15 @@ namespace Practice13_1_1 {
         /// <summary>
         /// 著者追加する
         /// </summary>
-        public static void AddAuthors(Author vFirstAuthour, Author vSecondAuthour) {
+        public static void AddAuthors(List<Author> vAuthors) {
             using (var wDbForAuthor = new BookDbContext()) {
-                wDbForAuthor.Authors.Add(vFirstAuthour);
-                wDbForAuthor.Authors.Add(vSecondAuthour);
+                foreach(var wAuthor in vAuthors) {
+                    if (wDbForAuthor.Authors.Any(x => x.Id == wAuthor.Id)) {
+                        Console.WriteLine($"著者 ID {wAuthor.Id} は既にデータベースに存在します。追加操作を中止します。");
+                        continue;
+                    }
+                    wDbForAuthor.Authors.Add(wAuthor);
+                }                
                 wDbForAuthor.SaveChanges();
             }
         }
@@ -35,12 +47,15 @@ namespace Practice13_1_1 {
         /// <summary>
         ///書籍を追加する。
         /// </summary>
-        public static void AddBooks(Book vBook, Book vBook2, Book vBook3, Book vBook4) {
+        public static void AddBooks(List<Book> vBooks) {
             using (var wDbforBook = new BookDbContext()) {
-                wDbforBook.Books.Add(vBook);
-                wDbforBook.Books.Add(vBook2);
-                wDbforBook.Books.Add(vBook3);
-                wDbforBook.Books.Add(vBook4);
+                foreach(var wBook in vBooks) {
+                    if (wDbforBook.Books.Any(x => x.Id == wBook.Id)) {
+                        Console.WriteLine($"著者 ID {wBook.Id} は既にデータベースに存在します。追加操作を中止します。");
+                        continue;
+                    }
+                    wDbforBook.Books.Add(wBook);
+                }
                 wDbforBook.SaveChanges();
             }
         }
@@ -64,7 +79,6 @@ namespace Practice13_1_1 {
         /// </summary>
         public static void GetBookWithLongestTitle() {
             using (var wDb = new BookDbContext()) {
-
                 var wMaxLength = wDb.Books.Max(x => x.Title.Length);
                 var wLongestTitleBooks = wDb.Books.Where(x => x.Title.Length == wMaxLength).ToList();
                 foreach(var wBook in wLongestTitleBooks) {

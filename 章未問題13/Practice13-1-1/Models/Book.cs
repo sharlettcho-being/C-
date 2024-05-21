@@ -4,13 +4,32 @@
     /// </summary>
     public class Book {
         /// <summary>
-        /// パレメータなしのコンストラクタ
+        /// 書籍の一意の識別子を取得または設定
         /// </summary>
-        public Book() {
-        }
+        public int Id { get; set; }
 
         /// <summary>
-        /// パレメータありのコンストラクタ
+        /// 書籍のタイトルを取得または設定
+        /// </summary>
+        public string Title { get; set; }
+
+        /// <summary>
+        /// 書籍が出版された年を取得または設定
+        /// </summary>
+        public int PublishedYear { get; set; }
+
+        /// <summary>
+        /// 書籍の著者を取得または設定
+        /// </summary>
+        public virtual Author Author { get; set; }
+
+        /// <summary>
+        /// 空のコンストラクタ
+        /// </summary>
+        public Book() { }
+
+        /// <summary>
+        /// コンストラクタ
         /// </summary>
         /// <param name="id">書籍の一意の識別子</param>
         /// <param name="title">書籍のタイトル</param>
@@ -22,22 +41,5 @@
             this.PublishedYear = vPublishedYear;
             this.Author = vAuthor;
         }
-
-        /// <summary>
-        /// 書籍の一意の識別子を取得または設定
-        /// </summary>
-        public int Id { get; set; }
-        /// <summary>
-        /// 書籍のタイトルを取得または設定
-        /// </summary>
-        public string Title { get; set; }
-        /// <summary>
-        /// 書籍が出版された年を取得または設定
-        /// </summary>
-        public int PublishedYear { get; set; }
-        /// <summary>
-        /// 書籍の著者を取得または設定
-        /// </summary>
-        public virtual Author Author { get; set; }
     }
 }
