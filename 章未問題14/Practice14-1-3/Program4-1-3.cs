@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using System;
 using System.Configuration;
 
 namespace Practice14_1_3 {
@@ -14,14 +14,16 @@ namespace Practice14_1_3 {
             }
 
             // MyAppSettings セクションから CalendarOption を取得
-            MyAppSettings settings = wConfig.GetSection("MyAppSettings") as MyAppSettings;
-
-            // 新しい設定値をセット
-            settings.CalendarOption.StringFormat = "yyyy年MM月dd日(dddd)";
-            settings.CalendarOption.Minimum = "1990/1/1";
-            settings.CalendarOption.Maximum = "2100/12/31";
-            settings.CalendarOption.MondayIsFirstDay = true;
-
+            MyAppSettings wSettings = wConfig.GetSection("MyAppSettings") as MyAppSettings;
+            if (wSettings != null) {
+                // 新しい設定値をセット
+                wSettings.CalendarOption.StringFormat = "yyyy年MM月dd日(dddd)";
+                wSettings.CalendarOption.Minimum = "1990/1/1";
+                wSettings.CalendarOption.Maximum = "2100/12/31";
+                wSettings.CalendarOption.MondayIsFirstDay = true;
+            } else {
+                Console.WriteLine("エラー: MyAppSettings セクションが存在しない！.");
+            }
             // 構成ファイルを保存
             wConfig.Save(ConfigurationSaveMode.Modified);
         }
