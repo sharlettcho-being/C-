@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Text;
 
 namespace Practice16_1_1 {
     public partial class Form1 : Form {
@@ -17,7 +18,11 @@ namespace Practice16_1_1 {
             using (var wReader = new StreamReader(wFilePath)) {
                 while (!wReader.EndOfStream) {
                     var wLines = await wReader.ReadLineAsync();
-                    ShowText.Text += wLines + Environment.NewLine;
+                    var wStringBuilder = new StringBuilder();
+                    foreach (var wLine in wLines) {
+                        wStringBuilder.Append(wLine);
+                    }
+                    txtLoaded.Text += wStringBuilder.ToString();
                 }
             }
         }
