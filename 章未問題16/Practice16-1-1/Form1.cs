@@ -17,12 +17,11 @@ namespace Practice16_1_1 {
 
             using (var wReader = new StreamReader(wFilePath)) {
                 while (!wReader.EndOfStream) {
-                    var wLines = await wReader.ReadLineAsync();
                     var wStringBuilder = new StringBuilder();
-                    foreach (var wLine in wLines) {
-                        wStringBuilder.Append(wLine);
+                    while (!wReader.EndOfStream) {
+                        wStringBuilder.AppendLine(await wReader.ReadLineAsync());
                     }
-                    txtLoaded.Text += wStringBuilder.ToString();
+                    FTextBoxLoaded.Text += wStringBuilder.ToString();
                 }
             }
         }
