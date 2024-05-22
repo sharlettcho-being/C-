@@ -3,6 +3,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using System.Windows.Markup;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -55,14 +56,14 @@ namespace Practice12_1_2 {
 
     internal class Program {
         static void Main(string[] args) {
-            var wNovelist = new NoveList {
-                Name = "アーサー・C・クラーク",
-                Birth = new DateTime(1917, 12, 16),
-                Masterpieces = new string[] {
+            var wNovelist = new NoveList(
+                "アーサー・C・クラーク",
+                new DateTime(1917, 12, 16),
+                new string[] {
                     "2001年守宙の旅",
                     "幼年期の終り"
                 }
-            };
+            );
 
             //Xmlファイルでの設定
             var wSettings = new XmlWriterSettings {
