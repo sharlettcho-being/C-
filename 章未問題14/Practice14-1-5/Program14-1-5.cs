@@ -23,8 +23,7 @@ namespace Practice14_1_5 {
             using (var wZipFile = ZipFile.OpenRead(vZipFilePath)) {
                 foreach (var wEntry in wZipFile.Entries) {
                     // エントリが .txt ファイルであるかをチェックする
-                    if (!Path.GetExtension(wEntry.Name).Equals(".txt", StringComparison.OrdinalIgnoreCase))
-                        continue;
+                    if (!Path.GetExtension(wEntry.Name).Equals(".txt", StringComparison.OrdinalIgnoreCase)) continue;
                      // 出力パス
                      string wOutputPath = Path.Combine(vOutputFolderPath, wEntry.FullName);
 

@@ -14,16 +14,10 @@ namespace Practice14_1_3 {
             }
 
             // MyAppSettings セクションから CalendarOption を取得
-            MyAppSettings wSettings = wConfig.GetSection("MyAppSettings") as MyAppSettings;
-            if (wSettings != null) {
-                // 新しい設定値をセット
-                wSettings.CalendarOption.StringFormat = "yyyy年MM月dd日(dddd)";
-                wSettings.CalendarOption.Minimum = "1990/1/1";
-                wSettings.CalendarOption.Maximum = "2100/12/31";
-                wSettings.CalendarOption.MondayIsFirstDay = true;
-            } else {
-                Console.WriteLine("エラー: MyAppSettings セクションが存在しない！.");
-            }
+            var wSettings = wConfig.GetSection("MyAppSettings") as MyAppSettings ?? new MyAppSettings();
+            CalendarOption wCalendarOption = new CalendarOption("yyyy年MM月dd日(dddd)", "1990/1/1", "2100/12/31", true);
+            wSettings.CalendarOption = wCalendarOption;
+
             // 構成ファイルを保存
             wConfig.Save(ConfigurationSaveMode.Modified);
         }
@@ -55,18 +49,27 @@ namespace Practice14_1_3 {
         /// 最大値を設定
         /// </summary>
         [ConfigurationProperty("Maximum")]
-         public string Maximum {
+        public string Maximum {
             get { return (string)this["Maximum"]; }
             set { this["Maximum"] = value; }
-         }
+        }
 
         /// <summary>
         /// 週の最初の曜日が月曜日かどうかを表す
         /// </summary>
         [ConfigurationProperty("MondayIsFirstDay")]
-         public bool MondayIsFirstDay {
+        public bool MondayIsFirstDay {
             get { return (bool)this["MondayIsFirstDay"]; }
             set { this["MondayIsFirstDay"] = value; }
+        }
+
+        public CalendarOption() { }
+
+        public CalendarOption(string vStringFormat, string vMinimum, string vMaximum, bool vMondayIsFirstDay) {
+            this.StringFormat = vStringFormat;
+            this.Minimum = vMinimum;
+            this.Maximum = vMaximum;
+            this.MondayIsFirstDay = vMondayIsFirstDay;
         }
     }
 
