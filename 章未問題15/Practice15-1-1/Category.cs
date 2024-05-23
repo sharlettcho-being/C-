@@ -6,12 +6,12 @@
         /// <summary>
         /// 書籍のカテゴリID
         /// </summary>
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
         /// <summary>
         /// 書籍のカテゴリ名
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         /// <summary>
         /// オーバーライドされたToStringメソッド

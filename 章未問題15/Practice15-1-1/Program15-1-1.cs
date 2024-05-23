@@ -144,19 +144,23 @@ namespace Practice15_1_1 {
         public static void ShowBookData(string vHeader, IEnumerable<dynamic> vBook) {
             Console.WriteLine(vHeader);
             if (vHeader.Contains("発行年ごとに書籍数のカウント")) {
+                if (vBook == null || vBook.Count() == 0) return;
                 foreach (var wBook in vBook) {
                     Console.WriteLine($"{wBook.wYear}\t{wBook.wCount}");
                 }
             }
             else if (vHeader.Contains("発行年、価格の順に並べ替えした結果")) {
+                if (vBook == null || vBook.Count() == 0) return;
                 foreach (var wSortBook in vBook) {
                     Console.WriteLine($"{wSortBook.PublishedYear}年 {wSortBook.Price}円 {wSortBook.Title} ({wSortBook.CategoryName})");
                 }                
             } else if (vHeader.Contains("2016年に発行された書籍のカテゴリ一覧")) {
+                if (vBook == null || vBook.Count() == 0) return;
                 foreach (var wBook in vBook) {
                     Console.WriteLine(wBook.ToString());
                 }
             } else if (vHeader.Contains("カテゴリ名をアルファベット順に並べ替えした書籍名")) {
+                if (vBook == null || vBook.Count() == 0) return;
                 foreach (var wBook in vBook) {
                     Console.WriteLine($"#{wBook.Category}");
                     foreach (var wBookTitle in wBook.Titles) {
@@ -164,6 +168,7 @@ namespace Practice15_1_1 {
                     }
                 }
             } else if (vHeader.Contains("「Development」というカテゴリの書籍を発行年ごとに分類して結果")) {
+                if (vBook == null || vBook.Count() == 0) return;
                 foreach (var wBook in vBook) {
                     Console.WriteLine($"#{wBook.Year}");
                     foreach (var w in wBook.Books) {
@@ -171,6 +176,7 @@ namespace Practice15_1_1 {
                     }
                 }
             } else if (vHeader.Contains("4冊以上発行されたカテゴリ名")) {
+                if (vBook == null || vBook.Count() == 0) return;
                 foreach (var wCategory in vBook) {
                     Console.WriteLine(wCategory);
                 }
