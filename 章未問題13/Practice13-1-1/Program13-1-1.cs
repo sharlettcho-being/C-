@@ -31,7 +31,7 @@ namespace Practice13_1_1 {
         /// <summary>
         /// 著者追加する
         /// </summary>
-        public static void AddAuthors(List<Author> vAuthors) {
+        public static void AddAuthors(IEnumerable<Author> vAuthors) {
             using (var wDbForAuthor = new BookDbContext()) {
                 foreach(var wAuthor in vAuthors) {
                     if (wDbForAuthor.Authors.Any(x => x.Id == wAuthor.Id)) {
@@ -39,7 +39,7 @@ namespace Practice13_1_1 {
                         continue;
                     }
                     wDbForAuthor.Authors.Add(wAuthor);
-                }                
+                }
                 wDbForAuthor.SaveChanges();
             }
         }
@@ -47,7 +47,7 @@ namespace Practice13_1_1 {
         /// <summary>
         ///書籍を追加する。
         /// </summary>
-        public static void AddBooks(List<Book> vBooks) {
+        public static void AddBooks(IEnumerable<Book> vBooks) {
             using (var wDbforBook = new BookDbContext()) {
                 foreach(var wBook in vBooks) {
                     if (wDbforBook.Books.Any(x => x.Id == wBook.Id)) {
