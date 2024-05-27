@@ -1,5 +1,5 @@
 ﻿namespace Practice16_1_1 {
-    partial class Form1 {
+    partial class FForm {
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
@@ -47,14 +47,15 @@
             this.FTextBoxLoaded.Size = new System.Drawing.Size(294, 354);
             this.FTextBoxLoaded.TabIndex = 1;
             // 
-            // Form1
+            // FForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 611);
             this.Controls.Add(this.FTextBoxLoaded);
             this.Controls.Add(this.FButtonStart);
-            this.Name = "Form1";
+            this.Name = "FForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

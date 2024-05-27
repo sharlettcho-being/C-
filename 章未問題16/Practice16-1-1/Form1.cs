@@ -4,8 +4,8 @@ using System.IO;
 using System.Text;
 
 namespace Practice16_1_1 {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class FForm : Form {
+        public FForm() {
             InitializeComponent();
         }
         private async void button1_Click(object sender, EventArgs e) {
@@ -16,13 +16,11 @@ namespace Practice16_1_1 {
             if (!File.Exists(wFilePath)) return;
 
             using (var wReader = new StreamReader(wFilePath)) {
+                var wStringBuilder = new StringBuilder();
                 while (!wReader.EndOfStream) {
-                    var wStringBuilder = new StringBuilder();
-                    while (!wReader.EndOfStream) {
-                        wStringBuilder.AppendLine(await wReader.ReadLineAsync());
-                    }
-                    FTextBoxLoaded.Text += wStringBuilder.ToString();
+                    wStringBuilder.AppendLine(await wReader.ReadLineAsync());
                 }
+                FTextBoxLoaded.Text += wStringBuilder.ToString();
             }
         }
         
