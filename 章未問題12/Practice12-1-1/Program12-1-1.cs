@@ -75,6 +75,7 @@ namespace Practice12_1_1 {
             };
 
             var wFileName = "Employee.xml";
+            var vFileJsonName = "Employee.json";
 
             //オブジェクトをシリアル化にする。
             SerializeObject(wEmployees[0], wSettings, wFileName);
@@ -86,7 +87,7 @@ namespace Practice12_1_1 {
             DeserializeObjectArray(wFileName);
 
             //複数のオブジェクトが格納されている配列をJSONファイルに出力する
-            SerializeObjectArrayToJsonFile(wEmployees, wJsonSettings);
+            SerializeObjectArrayToJsonFile(wEmployees, wJsonSettings, vFileJsonName);
         }
 
         /// <summary>
@@ -128,8 +129,8 @@ namespace Practice12_1_1 {
         /// Idはシリアル化対象外。
         /// </summary>
         /// <param name="vEmployees">配列</param>
-        public static void SerializeObjectArrayToJsonFile(Employee[] vEmployees, DataContractJsonSerializerSettings vJsonSettings) {
-            using (var wStream = new FileStream("Employee.json", FileMode.Create, FileAccess.Write)){
+        public static void SerializeObjectArrayToJsonFile(Employee[] vEmployees, DataContractJsonSerializerSettings vJsonSettings, string vFileName) {
+            using (var wStream = new FileStream(vFileName, FileMode.Create, FileAccess.Write)){
                 var wSerializer = new DataContractJsonSerializer(typeof(Employee[]), vJsonSettings);
                 wSerializer.WriteObject(wStream, vEmployees);
             }
