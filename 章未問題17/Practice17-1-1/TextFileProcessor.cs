@@ -5,7 +5,7 @@ namespace Practice17_1_1 {
     /// <summary>
     /// テキストファイルを処理するためのフレームワークを提供する
     /// </summary>
-    internal class TextFileProcessor {
+    internal abstract class TextFileProcessor {
         /// <summary>
         /// 指定されたテキストファイル処理クラスを実行します。
         /// </summary>

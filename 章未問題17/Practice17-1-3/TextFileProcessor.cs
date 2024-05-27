@@ -16,6 +16,10 @@ namespace Practice17_1_3 {
     internal class TextFileProcessor {
         private ITextFileProcessor wTxtProcessor;
 
+        /// <summary>
+        /// TextFileProcessor クラスのインスタンスを初期化
+        /// </summary>
+        /// <param name="vChangeDigit">テキストファイル処理を変更するためのオブジェクト</param>
         public TextFileProcessor(ITextFileProcessor vChangeDigit) {
             this.wTxtProcessor = vChangeDigit;
         }
