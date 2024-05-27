@@ -23,21 +23,21 @@
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
-            this.FButtonStart = new System.Windows.Forms.Button();
+            this.FButtonStart_Click = new System.Windows.Forms.Button();
             this.FTextBoxLoaded = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // FButtonStart
+            // FButtonStart_Click
             // 
-            this.FButtonStart.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.FButtonStart.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.FButtonStart.Location = new System.Drawing.Point(80, 47);
-            this.FButtonStart.Name = "FButtonStart";
-            this.FButtonStart.Size = new System.Drawing.Size(152, 68);
-            this.FButtonStart.TabIndex = 0;
-            this.FButtonStart.Text = "クリック";
-            this.FButtonStart.UseVisualStyleBackColor = false;
-            this.FButtonStart.Click += new System.EventHandler(this.button1_Click);
+            this.FButtonStart_Click.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.FButtonStart_Click.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.FButtonStart_Click.Location = new System.Drawing.Point(80, 47);
+            this.FButtonStart_Click.Name = "FButtonStart_Click";
+            this.FButtonStart_Click.Size = new System.Drawing.Size(152, 68);
+            this.FButtonStart_Click.TabIndex = 0;
+            this.FButtonStart_Click.Text = "クリック";
+            this.FButtonStart_Click.UseVisualStyleBackColor = false;
+            this.FButtonStart_Click.Click += new System.EventHandler(this.button1_Click);
             // 
             // FTextBoxLoaded
             // 
@@ -53,7 +53,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 611);
             this.Controls.Add(this.FTextBoxLoaded);
-            this.Controls.Add(this.FButtonStart);
+            this.Controls.Add(this.FButtonStart_Click);
             this.Name = "FForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -64,7 +64,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button FButtonStart;
+        private System.Windows.Forms.Button FButtonStart_Click;
         private System.Windows.Forms.TextBox FTextBoxLoaded;
     }
 }
