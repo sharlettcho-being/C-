@@ -142,43 +142,34 @@ namespace Practice15_1_1 {
         /// <param name="vHeader">課題</param>
         /// <param name="vBook">内容のオブジェクト</param>
         public static void ShowBookData(string vHeader, IEnumerable<dynamic> vBook) {
+            if (vBook == null || vBook.Count() == 0) return;
             Console.WriteLine(vHeader);
-            if (vHeader.Contains("発行年ごとに書籍数のカウント")) {
-                if (vBook == null || vBook.Count() == 0) return;
-                foreach (var wBook in vBook) {
-                    Console.WriteLine($"{wBook.wYear}\t{wBook.wCount}");
-                }
-            }
-            else if (vHeader.Contains("発行年、価格の順に並べ替えした結果")) {
-                if (vBook == null || vBook.Count() == 0) return;
-                foreach (var wSortBook in vBook) {
-                    Console.WriteLine($"{wSortBook.PublishedYear}年 {wSortBook.Price}円 {wSortBook.Title} ({wSortBook.CategoryName})");
-                }                
-            } else if (vHeader.Contains("2016年に発行された書籍のカテゴリ一覧")) {
-                if (vBook == null || vBook.Count() == 0) return;
-                foreach (var wBook in vBook) {
-                    Console.WriteLine(wBook.ToString());
-                }
-            } else if (vHeader.Contains("カテゴリ名をアルファベット順に並べ替えした書籍名")) {
-                if (vBook == null || vBook.Count() == 0) return;
-                foreach (var wBook in vBook) {
-                    Console.WriteLine($"#{wBook.Category}");
-                    foreach (var wBookTitle in wBook.Titles) {
-                        Console.WriteLine($"　{wBookTitle}");
-                    }
-                }
-            } else if (vHeader.Contains("「Development」というカテゴリの書籍を発行年ごとに分類して結果")) {
-                if (vBook == null || vBook.Count() == 0) return;
-                foreach (var wBook in vBook) {
-                    Console.WriteLine($"#{wBook.Year}");
-                    foreach (var w in wBook.Books) {
-                        Console.WriteLine($"  {w.wBookInfo.Title}");
-                    }
-                }
-            } else if (vHeader.Contains("4冊以上発行されたカテゴリ名")) {
-                if (vBook == null || vBook.Count() == 0) return;
-                foreach (var wCategory in vBook) {
-                    Console.WriteLine(wCategory);
+            foreach (var wBook in vBook) {
+                switch (vHeader) {
+                    case string wHeader when wHeader.Contains("発行年ごとに書籍数のカウント"):
+                        Console.WriteLine($"{wBook.wYear}\t{wBook.wCount}");
+                        break;
+                    case string wHeader when wHeader.Contains("発行年、価格の順に並べ替えした結果"):
+                        Console.WriteLine($"{wBook.PublishedYear}年 {wBook.Price}円 {wBook.Title} ({wBook.CategoryName})");
+                        break;
+                    case string wHeader when wHeader.Contains("2016年に発行された書籍のカテゴリ一覧"):
+                        Console.WriteLine(wBook.ToString());
+                        break;
+                    case string wHeader when wHeader.Contains("カテゴリ名をアルファベット順に並べ替えした書籍名"):
+                        Console.WriteLine($"#{wBook.Category}");
+                        foreach (var wBookTitle in wBook.Titles) {
+                            Console.WriteLine($"　{wBookTitle}");
+                        }
+                        break;
+                    case string wHeader when wHeader.Contains("「Development」というカテゴリの書籍を発行年ごとに分類して結果"):
+                        Console.WriteLine($"#{wBook.Year}");
+                        foreach (var w in wBook.Books) {
+                            Console.WriteLine($"  {w.wBookInfo.Title}");
+                        }
+                        break;
+                    case string wHeader when wHeader.Contains("4冊以上発行されたカテゴリ名"):
+                        Console.WriteLine(wBook);
+                        break;
                 }
             }
             Console.WriteLine();

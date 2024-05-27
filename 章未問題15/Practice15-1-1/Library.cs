@@ -8,12 +8,12 @@ namespace Practice15_1_1 {
         /// <summary>
         /// カテゴリのコレクションを保持する静的プロパティ
         /// </summary>
-        public static IEnumerable<Category> Categories { get; private set; }
+        public static IEnumerable<Category> Categories { get; }
 
         /// <summary>
         /// 書籍のコレクションを保持する静的プロパティ
         /// </summary>
-        public static IEnumerable<Book> Books { get; private set; }
+        public static IEnumerable<Book> Books { get; }
 
         static Library() {
             // Categories のデータを初期化

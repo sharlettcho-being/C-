@@ -6,22 +6,22 @@
         /// <summary>
         /// 書籍のタイトル
         /// </summary>
-        public string Title { get; private set; }
+        public string Title { get; }
 
         /// <summary>
         /// 書籍の価格
         /// </summary>
-        public int Price { get; private set; }
+        public int Price { get; }
 
         /// <summary>
         /// 書籍のカテゴリID
         /// </summary>
-        public int CategoryId { get; private set; }
+        public int CategoryId { get; }
 
         /// <summary>
         /// 書籍の発行年
         /// </summary>
-        public int PublishedYear { get; private set; }
+        public int PublishedYear { get; }
 
         /// <summary>
         /// オーバーライドされたToStringメソッド
