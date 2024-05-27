@@ -15,8 +15,7 @@ namespace Practice14_1_3 {
 
             // MyAppSettings セクションから CalendarOption を取得
             var wSettings = wConfig.GetSection("MyAppSettings") as MyAppSettings ?? new MyAppSettings();
-            CalendarOption wCalendarOption = new CalendarOption("yyyy年MM月dd日(dddd)", "1990/1/1", "2100/12/31", true);
-            wSettings.CalendarOption = wCalendarOption;
+            wSettings.CalendarOption = new CalendarOption("yyyy年MM月dd日(dddd)", "1990/1/1", "2100/12/31", true);
 
             // 構成ファイルを保存
             wConfig.Save(ConfigurationSaveMode.Modified);
