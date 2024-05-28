@@ -138,7 +138,7 @@
         public ConverterBase To { get; private set; }
 
         /// <summary>
-        /// DistanceConverter クラスの新しいインスタンスを初期化
+        /// コンストラクタ
         /// </summary>
         /// <param name="vFromValue">変換元の単位を表す ConverterBase のインスタンス。</param>
         /// <param name="vToValue">変換先の単位を表す ConverterBase のインスタンス。</param>
