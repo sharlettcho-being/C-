@@ -8,7 +8,7 @@ namespace Practice16_1_1 {
         public FForm() {
             InitializeComponent();
         }
-        private async void button1_Click(object sender, EventArgs e) {
+        private async void FButtonStart_Click(object sender, EventArgs e) {
             // 相対パスを使用してファイルにアクセスする例
             string wFilePath = @"..\..\Abbreviations.txt";
 
